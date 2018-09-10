@@ -21,9 +21,8 @@ def reducer():
             continue
 
         currentWord = data[0]
-        print(data[1])
         amountWord = int(data[1])
-
+        
         # check if previousWord exists and not the same as current
         if previousWord and previousWord != currentWord:
             #print previous word and reset

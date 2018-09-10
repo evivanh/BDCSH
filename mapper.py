@@ -10,7 +10,7 @@ def mapper():
     for line in sys.stdin:
 
         # remove characters 
-        row = line.strip()
+        row = line.strip(line)
         print (row)
         row = re.split(r'[`\-=!#$()+\[\];\'\\:"<,./<>?\t\r\n\N]', row)
         # print(line)

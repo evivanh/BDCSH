@@ -10,14 +10,19 @@ def mapper():
 
         # remove characters 
         data = line.split('\t')
+
+        if len(data) != 5:
+            continue
+
+        body = data[4]
         
         for ch in ['.',',','!','?',':',';','"','(',')','<','>','[',']','#','$','=','-','/']:
-            if ch in data:  
-                data = data.replace(ch," ")
+            if ch in body:  
+                body = body.replace(ch," ")
 
-        row = data.split()
+        body = body.split()
         
-        for word in row:
+        for word in body:
             # if not a numeric character remove
             # word = ''.join(e for e in word if e.isalnum())
 

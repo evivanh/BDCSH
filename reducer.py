@@ -5,53 +5,38 @@ import sys
 
 def reducer():
 
-    template = "{0};{1};{2};{3};{4}"
+    template = "{0};{1};"
 
-    prevMunicipality = None
-    currentMunicipality = None
-    currentMunicipalityMale = 0
-    currentMunicipalityFemale = 0
-    currentMunicipalityTotal = 0
-    currentMunicipalityCostsCare = 0
+    previousWord = None
+    currentWord = None
+    amountPreviousWord = 0
+    amountWord = 0
 
     # Input comes from STDIN
     for line in sys.stdin:
 
         # Check argument count
         data = line.strip().split(';')
-        if len(data) != 4:
+        if len(data) != 2:
             continue
 
-        currentMunicipality = data[0]
-        males = int(data[1])
-        females = int(data[2])
-        costCare = float(data[3])
+        currentWord = data[0]
+        amountWord = int(data[1])
 
-        # If current municipality does not equal previous municipality
-        if prevMunicipality and prevMunicipality != currentMunicipality:
+        # check if previousWord exists and not the same as current
+        if previousWord and previousWord != currentWord:
+            #print previous word and reset
+            print(template.format(previousWord, amountPreviousWord))
+            previousWord = None
+            amountPreviousWord = 0
 
-            # Print the previous municipality and its count
-            print(template.format(prevMunicipality, currentMunicipalityTotal, currentMunicipalityMale, currentMunicipalityFemale, currentMunicipalityCostsCare))
-
-            # Reset counters
-            currentMunicipalityMale = 0
-            currentMunicipalityFemale = 0
-            currentMunicipalityTotal = 0
-            currentMunicipalityCostsCare = 0
-
-            # New current word
-            prevMunicipality = currentMunicipality
-
-        # Increase counters
-        currentMunicipalityMale += males
-        currentMunicipalityFemale += females
-        currentMunicipalityTotal = currentMunicipalityMale + currentMunicipalityFemale
-        currentMunicipalityCostsCare += costCare
-        
-        # Set the current word as the previous word for next iteration
-        prevMunicipality = currentMunicipality
-
+        # if previous word and current word are the same, add to counter and previous word is current word
+        amountPreviousWord += amountWord
+        previousWord = currentWord
+   
     # Print the current word and its count
-    print(template.format(prevMunicipality, currentMunicipalityTotal, currentMunicipalityMale, currentMunicipalityFemale, currentMunicipalityCostsCare))
+    print(template.format(previousWord, amountWord))
+   
+        
 
 reducer()

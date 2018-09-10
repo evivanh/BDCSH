@@ -10,19 +10,21 @@ def mapper():
 
         # remove characters 
         row = line.split('\t')
+        
+        for ch in "['#','`','\','-','=','!']":
+            if ch in row:  
+                row = row.replace(ch," ")
 
+        row = row.split(" ")
+        
         for word in row:
             # if not a numeric character remove
             # word = ''.join(e for e in word if e.isalnum())
 
-            for ch in "['#','`','\','-','=','!']":
-                if ch in word:  
-                    word = word.replace(ch," ")
+           
 
-        word = word.split(" ")
-
-        # if word not empty print
-        if word:
-            print('{0};{1}'.format(word.lower(), 1))
+            # if word not empty print
+            if word:
+                print('{0};{1}'.format(word.lower(), 1))
 
 mapper()

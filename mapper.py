@@ -11,8 +11,7 @@ def mapper():
     for line in sys.stdin:
 
         # remove characters 
-        row = line.strip().split('.', ',', '!', '?', ':', ';', '"', 
-        '(', ')', '<', '>', '[', ']', '#', '$', '=', '-','/' )
+        row = line.strip().split('.', ',', '!', '?', ':', ';', '"', '(', ')', '<', '>', '[', ']', '#', '$', '=', '-','/' )
 
         row.lower()
 

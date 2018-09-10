@@ -12,11 +12,16 @@ def mapper():
         # remove characters 
         row = line.split()
         print (row)
-        # row = re.split(r'[`\-=~!@#$%^&*()_+\[\]{};\'\\:"|<,./<>?]', row)
+        # row = re.split(r'[`\-=~!@#$%^&*()_+\[\]{};\'\\:"|<,./<>?]', line)
         # row.split('"', row)
         # print(line)
+
         for word in row:
-            word = re.split(r'[`\-=~!@#$%^&*()_+\[\]{};\'\\:"|<,./<>?]', word)
+
+            for ch in "['#','`','\','-','=','!']":
+                if ch in word:
+                    word = word.replace(ch, '')
+
             print('{0}\t{1}'.format(word.lower(), 1))
 
 mapper()

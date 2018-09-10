@@ -9,13 +9,13 @@ def mapper():
     for line in sys.stdin:
 
         # remove characters 
-        row = line.split('\t')
+        data = line.split('\t')
         
         for ch in ['.',',','!','?',':',';','"','(',')','<','>','[',']','#','$','=','-','/']:
-            if ch in row:  
-                row = row.replace(ch," ")
+            if ch in data:  
+                data = data.replace(ch," ")
 
-        row = row.split()
+        row = data.split()
         
         for word in row:
             # if not a numeric character remove

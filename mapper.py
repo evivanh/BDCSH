@@ -18,11 +18,13 @@ def mapper():
 
         for word in row:
             word = ''.join(e for e in word if e.isalnum())
+            if word:
+
             # for ch in "['#','\','-','=','!','?','"']":
                 # if ch in word:
                 #     word = word.replace(ch, '')
                 #     print(word)
 
-            print('{0}\t{1}'.format(word.lower(), 1))
+                print('{0}\t{1}'.format(word.lower(), 1))
 
 mapper()

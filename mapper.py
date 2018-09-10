@@ -13,9 +13,10 @@ def mapper():
         row = line.split()
         print (row)
         # row = re.split(r'[`\-=~!@#$%^&*()_+\[\]{};\'\\:"|<,./<>?]', row)
-        row.split('"', row)
+        # row.split('"', row)
         # print(line)
-        for word in row: 
+        for word in row:
+            word = re.split(r'[`\-=~!@#$%^&*()_+\[\]{};\'\\:"|<,./<>?]', word)
             print('{0}\t{1}'.format(word.lower(), 1))
 
 mapper()

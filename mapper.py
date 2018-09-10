@@ -12,7 +12,7 @@ def mapper():
         # remove characters 
         row = re.split(r'[`\-=!#$()+\[\];\'\\:"<,./<>?]', line)
 
-        row.strip().lower()
+        row.lower()
 
         for word in row: 
             print(word, 1)

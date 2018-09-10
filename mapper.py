@@ -11,7 +11,7 @@ def mapper():
         # remove characters 
         data = line.split('\t')
         # wrong
-        if len(data) <= 5:
+        if len(data) < 5:
             continue
 
         body = data[4]
@@ -25,11 +25,6 @@ def mapper():
         body = body.split()
         
         for word in body:
-            # if not a numeric character remove
-            # word = ''.join(e for e in word if e.isalnum())
-
-           
-
             # if word not empty print
             if word:
                 print('{0};{1}'.format(word.lower(), 1))

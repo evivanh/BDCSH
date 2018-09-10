@@ -17,7 +17,7 @@ def reducer():
 
         # Check argument count
         data = line.strip().split(';')
-        if len(data) != 2:
+        if len(data) < 2:
             continue
 
         currentWord = data[0]
@@ -27,7 +27,6 @@ def reducer():
         if previousWord and previousWord != currentWord:
             #print previous word and reset
             print(template.format(previousWord, amountPreviousWord))
-            previousWord = None
             amountPreviousWord = 0
 
         # if previous word and current word are the same, add to counter and previous word is current word

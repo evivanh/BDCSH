@@ -11,9 +11,10 @@ def mapper():
 
         # remove characters 
         row = line.strip()
-        row = re.split(r'[`\-=!#$()+\[\];\'\\:"<,./<>?\t\r\n]', row)
-        print(line)
-        for word in row: 
-            print('{0}\t{1}'.format(word.lower(), 1))
+        print (row)
+        row = re.split(r'[`\-=!#$()+\[\];\'\\:"<,./<>?\t\r\n\N]', row)
+        # print(line)
+        # for word in row: 
+        #     print('{0}\t{1}'.format(word.lower(), 1))
 
 mapper()

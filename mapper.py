@@ -11,7 +11,7 @@ def mapper():
         # remove characters 
         data = line.split('\t')
 
-        if len(data) != 5:
+        if len(data) < 5:
             continue
 
         body = data[4]

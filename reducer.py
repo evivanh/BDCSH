@@ -5,7 +5,7 @@ import sys
 
 def reducer():
 
-    template = "{0};{1};"
+    template = "{0};{1}"
 
     previousWord = None
     currentWord = None

@@ -11,7 +11,7 @@ def mapper():
         # remove characters 
         row = line.split('\t')
         
-        for ch in "['#','`','\','-','=','!']":
+        for ch in ['.',',','!','?',':',';','"','(',')','<','>','[',']','#','$','=','-','/']:
             if ch in row:  
                 row = row.replace(ch," ")
 

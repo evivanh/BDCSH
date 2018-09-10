@@ -17,11 +17,11 @@ def mapper():
         # print(line)
 
         for word in row:
-
-            for ch in "['#','`','\','-','=','!','\N','\n','\t','?', '"']":
-                if ch in word:
-                    word = word.replace(ch, '')
-                    print(word)
+            word = ''.join(e for e in word if e.isalnum())
+            # for ch in "['#','\','-','=','!','?','"']":
+                # if ch in word:
+                #     word = word.replace(ch, '')
+                #     print(word)
 
             print('{0}\t{1}'.format(word.lower(), 1))
 

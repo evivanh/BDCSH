@@ -18,7 +18,7 @@ def mapper():
 
         for word in row:
 
-            for ch in "['#','`','\','-','=','!']":
+            for ch in "['#','`','\','-','=','!','\N','\n','\t','?', '"']":
                 if ch in word:
                     word = word.replace(ch, '')
                     print(word)

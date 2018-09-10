@@ -14,6 +14,6 @@ def mapper():
         row = re.split(r'[`\-=!#$()+\[\];\'\\:"<,./<>?\t\N\r\n]', line)
 
         for word in row: 
-            print(word, 1)
+            print('{0}', format.(word, 1))
 
 mapper()

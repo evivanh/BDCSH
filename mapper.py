@@ -15,13 +15,11 @@ def mapper():
             continue
 
         body = data[4]
-        print(body)
         
         for ch in ['.',',','!','?',':',';','"','(',')','<','>','[',']','#','$','=','-','/']:
             if ch in body:  
                 body = body.replace(ch," ")
 
-        print(body)
         body = body.split()
         
         for word in body:

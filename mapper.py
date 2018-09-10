@@ -11,11 +11,11 @@ def mapper():
         # remove characters 
         data = line.split('\t')
         # wrong
-        # if len(data) < 5:
-        #     continue
+        if len(data) <= 5:
+            continue
 
         body = data[4]
-        # print(body)
+        print(body)
         
         for ch in ['.',',','!','?',':',';','"','(',')','<','>','[',']','#','$','=','-','/']:
             if ch in body:  

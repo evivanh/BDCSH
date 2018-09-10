@@ -2,20 +2,19 @@
 """mapper.py"""
 
 import sys
+import re
 
 def mapper():
-
-    word = "fantastic"
 
     # Input comes from STDIN (standard input)
     for line in sys.stdin:
 
         # remove characters 
-        row = ''.join(e for e in line if e.isalnum())
+        row = re.split(r'[=!#$()+][;:-",./<>?]', line)
 
-        row.lower()
+        row.strip().lower()
 
-        if word in row:
-            print("{0}".format(word))
+        for word in row: 
+            print(word, 1)
 
 mapper()

@@ -15,7 +15,7 @@ def mapper():
             if ch in row:  
                 row = row.replace(ch," ")
 
-        row = row.split(" ")
+        row = row.split()
         
         for word in row:
             # if not a numeric character remove

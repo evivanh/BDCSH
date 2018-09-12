@@ -24,13 +24,13 @@ def reducer():
         currentDate = data[1]
         currentAmountTrack = int(data[2])
 
-        # check trackid first
+        # check trackid 
         if previousTrack and previousTrack != currentTrack:
             print('{0};{1};{2}'.format(previousTrack, previousDate, previousAmountTrack))
             previousAmountTrack = 0
 
         # check dates 
-        if previousDate and previousDate != currentDate:
+        if previousTrack == currentTrack and previousDate and previousDate != currentDate:
             print('{0};{1};{2}'.format(previousTrack, previousDate, previousAmountTrack))
             previousAmountTrack = 0
 

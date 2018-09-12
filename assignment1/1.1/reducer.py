@@ -22,7 +22,7 @@ def reducer():
 
         currentTrack = data[0]
         currentDate = data[1]
-        currentAmountTrack = data[2]
+        currentAmountTrack = int(data[2])
 
         # check trackid first
         if previousTrack and previousTrack != currentTrack:

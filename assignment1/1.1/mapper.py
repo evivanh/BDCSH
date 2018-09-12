@@ -18,7 +18,9 @@ def mapper():
         trackId = data[0]
         monthYear = data[2][0:7]
         amount = 1
-        print(monthYear)
+
+        if trackId == 'track_id' or data[1] == 'user' or data[2] == 'datetime':
+            continue
 
         # print the trackId, date and amount
         print('{0};{1};{2}'.format(trackId, monthYear, amount))

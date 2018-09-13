@@ -40,8 +40,10 @@ def reducer():
         if previousUserId and previousUserId != currentUserId:
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
-
-
+            previousUserId = None
+            previousFirstName = None
+            previousLastName = None
+            previousHourOfDay = None
         # maybe good
         if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay and previousHourOfDay != currentHourOfDay:
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))

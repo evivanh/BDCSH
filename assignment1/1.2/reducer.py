@@ -57,7 +57,7 @@ def reducer():
             previousFirstName = currentFirstName
             previousLastName = currentLastName
     
-        previousUserId = currentHourOfDay
+        previousUserId = previousUserId
    
     # Print the current word and its count
     print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))

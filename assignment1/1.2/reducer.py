@@ -32,6 +32,9 @@ def reducer():
         currentHourOfDay = data[3] if data[3] != None else None
         currentAmountPerHour = 1
 
+        print(printTemplate.format(currentUserId, currentFirstName, currentLastName, currentHourOfDay))
+        print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay))
+
         if previousUserId and previousUserId != currentUserId:
             print("first")
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))

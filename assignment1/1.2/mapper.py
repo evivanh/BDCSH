@@ -10,18 +10,13 @@ def mapper():
         
         # remove characters 
         data = line.split(',')
-        print (data)
+        # print (data)
         # wrong
-        if len(data) != 3 or len(data) != 7:
+        if len(data) > 7:
             continue
 
-        if len(data) == 3:
-            if data[0] == 'track_id' or data[1] == 'user' or data[2] == 'datetime':
-                continue 
-
-        if len(data) == 7:
-            if data[0] == 'id' or data[1] == 'first_name' or data[2] == 'last_name':
-                continue
+        if data[0] == 'track_id' or data[1] == 'user' or data[2] == 'datetime' or data[0] == 'id' or data[1] == 'first_name' or data[2] == 'last_name':
+            continue
 
         # print(data[0])
 

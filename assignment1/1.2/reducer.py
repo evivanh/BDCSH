@@ -55,6 +55,7 @@ def reducer():
         elif previousUserId == currentUserId and currentHourOfDay:
             print("fourth")
             previousHourOfDay = currentHourOfDay
+            previousAmountPerHour += currentAmountPerHour
 
         previousUserId = currentUserId
         # previousFirstName = currentFirstName

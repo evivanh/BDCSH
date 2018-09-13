@@ -63,6 +63,6 @@ def reducer():
    
     # Print the current word and its count
     print("last")
-    # print(printTemplate.format(previousFirstName, previousLastName, previousAmountPerHour, previousHourOfDay))
+    print(printTemplate.format(previousFirstName, previousLastName, previousAmountPerHour, previousHourOfDay))
 
 reducer()

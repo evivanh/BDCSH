@@ -23,7 +23,7 @@ def mapper():
             if data[0] == 'id' or data[1] == 'first_name' or data[2] == 'last_name':
                 continue
 
-
+        print(data)
 
         
 

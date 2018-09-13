@@ -54,6 +54,9 @@ def reducer():
             previousHourOfDay = currentHourOfDay
 
         previousUserId = currentUserId
+        previousFirstName = currentFirstName
+        previousLastName = currentLastName
+        previousHourOfDay = currentHourOfDay
    
     # Print the current word and its count
     print("last")

@@ -5,43 +5,52 @@ import sys
 
 def reducer():
 
-    previousTrack = None
-    currentTrack = None
-    previousDate = None
-    currentDate = None
-    previousAmountTrack= 0
-    currentAmountTrack = 0
+    previousUserId = None
+    currentUserId = None
+    previousHourOfDay = None
+    currentHourOfDay = None
+    previousAmountPerHour= 0
+    currentAmountPerHour = 0
+    previousFirstName = None
+    previousLastName = None
+    currentFirstName = None
+    currentLastName = None
+    printTemplate = '{0};{1};{2};{3}'
 
     # Input comes from STDIN
     for line in sys.stdin:
 
         # Check argument count
         data = line.strip().split(';')
-        if len(data) < 3:
+
+        if len(data) < 4:
             continue
 
-        currentTrack = data[0]
-        currentDate = data[1]
-        currentAmountTrack = int(data[2])
+        currentUserId = data[0]
+        currentFirstName = data[1]
+        currentLastName = data[2]
+        currentHourOfDay = int(data[4])
+        currentAmountPerHour = 1
 
         # check trackid 
-        if previousTrack and previousTrack != currentTrack:
-            print('{0};{1};{2}'.format(previousTrack, previousDate, previousAmountTrack))
-            previousAmountTrack = 0
+        if previousUserId and previousUserId != currentUserId:
+            print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+            previousAmountPerHour = 0
 
         # check dates 
-        if previousTrack == currentTrack and previousDate and previousDate != currentDate:
-            print('{0};{1};{2}'.format(previousTrack, previousDate, previousAmountTrack))
-            previousAmountTrack = 0
+        if previousUserId == currentUserId and previousHourOfDay and previousHourOfDay != currentHourOfDay:
+            print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+            previousAmountPerHour = 0
 
-         # if previous track and data are the same as current, add to counter and previous track is current track
-        previousAmountTrack += currentAmountTrack
-        previousTrack = currentTrack
-        previousDate = currentDate
+        # if previous track and data are the same as current, add to counter and previous track is current track
+        previousAmountPerHour += currentAmountPerHour
+
+        previousFirstName = currentFirstName
+        previousLastName = currentLastName
+        previousHourOfDay = currentHourOfDay
+        previousUserId = currentHourOfDay
    
     # Print the current word and its count
-    print('{0};{1};{2}'.format(previousTrack, previousDate, previousAmountTrack))
-   
-        
+    print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
 
 reducer()

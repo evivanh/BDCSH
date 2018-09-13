@@ -34,7 +34,7 @@ def mapper():
         if len(data) == 3:
             track_id = data[0] 
             user = int(data[1])
-            datetime = data[2][:13]
+            datetime = data[2][11:13]
             print('{0};{1};{2}'.format(user, track_id, datetime))
 
 mapper()

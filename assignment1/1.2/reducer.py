@@ -41,10 +41,11 @@ def reducer():
         if previousUserId == currentUserId and previousHourOfDay and previousHourOfDay != currentHourOfDay:
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
+        
+        if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay == currentHourOfDay:
+            previousAmountPerHour =+ currentAmountPerHour
 
         # if previous track and data are the same as current, add to counter and previous track is current track
-        previousAmountPerHour += currentAmountPerHour
-
         previousFirstName = currentFirstName
         previousLastName = currentLastName
         previousHourOfDay = currentHourOfDay

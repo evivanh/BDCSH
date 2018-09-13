@@ -15,10 +15,10 @@ def mapper():
         if len(data) > 7:
             continue
 
-        
+        print(data)
         print('{0};{1};{2}'.format(data[0], data[1], data[2]))
 
-        if data[0] == 'track_id' or data[1] == 'user' or data[2] == 'datetime' or data[0] == 'id' or data[1] == 'first_name' or data[2] == 'last_name':
+        if data[0] == 'id' or data[1] == 'first_name' or data[2] == 'last_name' or data[0] == 'track_id' or data[1] == 'user' or data[2] == 'datetime':
             continue
 
         # print(data[0])

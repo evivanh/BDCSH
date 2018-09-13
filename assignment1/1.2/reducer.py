@@ -32,9 +32,6 @@ def reducer():
         currentHourOfDay = data[3] if data[3] != None else None
         currentAmountPerHour = 1
 
-        print(printTemplate.format(currentUserId, currentFirstName, currentLastName, currentHourOfDay))
-
-
         # check trackid 
         if previousUserId and previousUserId != currentUserId:
             print("first")

@@ -44,11 +44,12 @@ def reducer():
         
         if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay == currentHourOfDay:
             previousAmountPerHour =+ currentAmountPerHour
+            previousHourOfDay = currentHourOfDay
 
-        # if previous track and data are the same as current, add to counter and previous track is current track
-        previousFirstName = currentFirstName
-        previousLastName = currentLastName
-        previousHourOfDay = currentHourOfDay
+        if previousUserId == currentUserId:
+            previousFirstName = currentFirstName
+            previousLastName = currentLastName
+    
         previousUserId = currentHourOfDay
    
     # Print the current word and its count

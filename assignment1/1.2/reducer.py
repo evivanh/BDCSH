@@ -27,10 +27,13 @@ def reducer():
             continue
 
         currentUserId = data[0]
-        currentFirstName = data[1] if data[1] else None
+        currentFirstName = data[1] if data[1] != None else None
         currentLastName = data[2] if data[2] else None
         currentHourOfDay = data[3] if data[3] else None
         currentAmountPerHour = 1
+
+        print(printTemplate.format(currentUserId, currentFirstName, currentLastName, currentHourOfDay))
+
 
         # check trackid 
         if previousUserId and previousUserId != currentUserId:

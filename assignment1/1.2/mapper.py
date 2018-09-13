@@ -10,22 +10,31 @@ def mapper():
         
         # remove characters 
         data = line.split(',')
-        # print (data)
-        # wrong
+
+        # if longer than 7 delete
         if len(data) > 7:
             continue
-
-        print(data)
-        print('{0};{1};{2}'.format(data[0], data[1], data[2]))
 
         if data[0] == 'id' or data[1] == 'first_name' or data[2] == 'last_name' or data[0] == 'track_id' or data[1] == 'user' or data[2] == 'datetime':
             continue
 
-        # print(data[0])
+        user_id = 0
+        first_name = None
+        last_name = None
+        track_id = None
+        user = 0
+        datetime = None
 
-        
+        if len(data) == 7:
+            user_id = int(data[0])
+            first_name = data[1]
+            last_name = data[2]
+            print('{0};{1};{2}'.format(user_id, first_name, last_name))
 
-        # print the trackId, date and amount
-        print('{0};{1};{2}'.format(data[0], data[1], data[2]))
+        if len(data) == 3:
+            track_id = data[0] 
+            user = int(data[1])
+            datetime = data[2][:13]
+            print('{0};{1};{2}'.format(user, track_id, datetime))
 
 mapper()

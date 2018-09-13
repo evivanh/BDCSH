@@ -37,19 +37,23 @@ def reducer():
 
         # check trackid 
         if previousUserId and previousUserId != currentUserId:
+            print("first")
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
 
         # check dates 
         if previousUserId and previousUserId == currentUserId and previousHourOfDay and previousHourOfDay != currentHourOfDay:
+            print("second")
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
         
         if previousUserId and previousUserId  == currentUserId and currentHourOfDay and previousHourOfDay == currentHourOfDay:
+            print("third")
             previousAmountPerHour =+ currentAmountPerHour
             previousHourOfDay = currentHourOfDay
 
         if previousUserId and previousUserId == currentUserId:
+            print("last")
             previousFirstName = currentFirstName
             previousLastName = currentLastName
     

@@ -10,7 +10,7 @@ def mapper():
         
         # remove characters 
         data = line.split(',')
-        
+        print (data)
         # wrong
         if len(data) != 3 or len(data) != 7:
             continue

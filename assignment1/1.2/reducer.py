@@ -32,25 +32,23 @@ def reducer():
         currentHourOfDay = data[3] if data[3] != None else None
         currentAmountPerHour = 1
 
-        # check trackid 
+        # if previous user id exists and is not same as current user id
         if previousUserId and previousUserId != currentUserId:
             print("first")
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
 
-        # check dates 
-        if previousUserId and previousUserId == currentUserId and previousHourOfDay and previousHourOfDay != currentHourOfDay:
+        # if previous user id exists and is same as current user id and previous hour of day exists and is not same as current hour of day
+        elif previousHourOfDay and previousHourOfDay != currentHourOfDay:
             print("second")
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
         
-        if previousUserId and previousUserId  == currentUserId and currentHourOfDay and previousHourOfDay == currentHourOfDay:
+        # if previous user id exists and is same as current user id and previous hour of day exists and is same as current hour of day
+        else:
             print("third")
             previousAmountPerHour =+ currentAmountPerHour
             previousHourOfDay = currentHourOfDay
-
-        if previousUserId and previousUserId == currentUserId:
-            print("last")
             previousFirstName = currentFirstName
             previousLastName = currentLastName
     

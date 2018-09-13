@@ -38,24 +38,20 @@ def reducer():
         # print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay))
 
         if previousUserId and previousUserId != currentUserId:
-            print("first")
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
 
 
         # maybe good
         if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay and previousHourOfDay != currentHourOfDay:
-            print("second")
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = 0
         # good
         if previousUserId != currentUserId and currentFirstName and currentLastName:
-            print("third")
             previousFirstName = currentFirstName
             previousLastName = currentLastName
         if previousUserId == currentUserId and currentHourOfDay:
-            print("fourth")
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour += currentAmountPerHour
 
@@ -65,7 +61,6 @@ def reducer():
         # previousHourOfDay = currentHourOfDay
    
     # Print the current word and its count
-    print("last")
     print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
 
 reducer()

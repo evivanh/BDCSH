@@ -63,7 +63,7 @@ def reducer():
         # previousHourOfDay = currentHourOfDay
    
     # Print the current word and its count
-    if previousFirstName and previousLastName and previousHourOfDay and previousAmountPerHour:
+    # if previousFirstName and previousLastName and previousHourOfDay and previousAmountPerHour:
         # print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
 
 reducer()

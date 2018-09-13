@@ -29,7 +29,7 @@ def reducer():
         currentUserId = data[0]
         currentFirstName = data[1]
         currentLastName = data[2]
-        currentHourOfDay = int(data[4])
+        currentHourOfDay = int(data[3])
         currentAmountPerHour = 1
 
         # check trackid 

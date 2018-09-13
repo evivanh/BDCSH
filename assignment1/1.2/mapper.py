@@ -21,20 +21,18 @@ def mapper():
         user_id = 0
         first_name = None
         last_name = None
-        track_id = None
-        user = 0
-        datetime = None
+        hourOfDay = None
 
         if len(data) == 7:
             user_id = int(data[0])
             first_name = data[1]
             last_name = data[2]
-            print('{0};{1};{2}'.format(user_id, first_name, last_name))
 
         if len(data) == 3:
-            track_id = data[0] 
-            user = int(data[1])
-            datetime = data[2][11:13]
-            print('{0};{1};{2}'.format(user, track_id, datetime))
+            user_id = int(data[1])
+            hourOfDay = data[2][11:13]
+
+        print('{0};{1};{2};{3}'.format(user_id, first_name, last_name, hourOfDay))
+
 
 mapper()

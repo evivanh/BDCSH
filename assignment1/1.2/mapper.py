@@ -23,11 +23,11 @@ def mapper():
             if data[0] == 'id' or data[1] == 'first_name' or data[2] == 'last_name':
                 continue
 
-        print(data)
+        # print(data[0])
 
         
 
         # print the trackId, date and amount
-        # print('{0};{1};{2}'.format(trackId, monthYear, amount))
+        print('{0};{1};{2}'.format(data[0], data[1], data[2]))
 
 mapper()

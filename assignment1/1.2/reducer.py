@@ -5,17 +5,17 @@ import sys
 
 def reducer():
 
-    previousUserId = None
-    currentUserId = None
-    previousHourOfDay = None
-    currentHourOfDay = None
-    previousAmountPerHour= 0
-    currentAmountPerHour = 0
-    previousFirstName = None
-    previousLastName = None
-    currentFirstName = None
-    currentLastName = None
-    printTemplate = '{0};{1};{2};{3};{4}'
+    # previousUserId = None
+    # currentUserId = None
+    # previousHourOfDay = None
+    # currentHourOfDay = None
+    # previousAmountPerHour= 0
+    # currentAmountPerHour = 0
+    # previousFirstName = None
+    # previousLastName = None
+    # currentFirstName = None
+    # currentLastName = None
+    # printTemplate = '{0};{1};{2};{3};{4}'
 
     # Input comes from STDIN
     for line in sys.stdin:

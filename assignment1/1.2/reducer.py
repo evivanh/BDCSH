@@ -48,6 +48,7 @@ def reducer():
 
         # if previous id exists and is not the same as current id print it and reset variables
         if previousUserId and previousUserId != currentUserId:
+            print("first")
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
             previousUserId = None
@@ -56,6 +57,7 @@ def reducer():
             previousHourOfDay = None
         # if previous id is same as current id and currenhour and previoushour exist and are not the same print and set previous hour of day and reset counter
         if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay != currentHourOfDay:
+            print("second")
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = currentAmountPerHour
@@ -81,6 +83,7 @@ def reducer():
    
     # Print the current word and its count
     if previousFirstName and previousLastName and previousHourOfDay and previousAmountPerHour:
+        print("third")
         print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
 
 reducer()

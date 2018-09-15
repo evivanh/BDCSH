@@ -33,7 +33,6 @@ def reducer():
         currentAmountPerHour = 1
 
         # print("names ", previousFirstName, " ", previousLastName, " ", data[1], " ", data[2] )
-        print('{0};{1};{2};{3};{4}'.format(currentUserId, currentFirstName, currentLastName, currentHourOfDay, "incoming data"))
         # print("b")
         # print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay))
 

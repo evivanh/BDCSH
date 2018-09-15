@@ -32,13 +32,15 @@ def reducer():
         currentHourOfDay = data[3] if data[3] != None else None
         currentAmountPerHour = 1
 
-        print("names ", previousFirstName, " ", previousLastName, " ", data[1], " ", data[2] )
+        # print("names ", previousFirstName, " ", previousLastName, " ", data[1], " ", data[2] )
         # print(printTemplate.format(currentUserId, currentFirstName, currentLastName, currentHourOfDay))
         # print("b")
         # print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay))
 
+
+
         if previousUserId and previousUserId != currentUserId:
-            # print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+            print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
             previousUserId = None
             previousFirstName = None
@@ -46,7 +48,7 @@ def reducer():
             previousHourOfDay = None
         # maybe good
         if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay and previousHourOfDay != currentHourOfDay:
-            # print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+            print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = 0
         # good
@@ -63,7 +65,7 @@ def reducer():
         # previousHourOfDay = currentHourOfDay
    
     # Print the current word and its count
-    # if previousFirstName and previousLastName and previousHourOfDay and previousAmountPerHour:
-        # print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+    if previousFirstName and previousLastName and previousHourOfDay and previousAmountPerHour:
+        print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
 
 reducer()

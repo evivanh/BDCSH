@@ -15,7 +15,7 @@ def reducer():
     previousLastName = None
     currentFirstName = None
     currentLastName = None
-    printTemplate = '{0};{1};{2};{3}'
+    printTemplate = '{0};{1};{2};{3};{4}'
 
     # Input comes from STDIN
     for line in sys.stdin:
@@ -47,18 +47,20 @@ def reducer():
         # if currenthourofday save that
 
         # if previous id exists and is not the same as current id print it and reset variables
+        # firstname, lastname, none, 0 fails here
         if previousUserId and previousUserId != currentUserId:
             print("first")
-            print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+            print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
             previousUserId = None
             previousFirstName = None
             previousLastName = None
             previousHourOfDay = None
         # if previous id is same as current id and currenhour and previoushour exist and are not the same print and set previous hour of day and reset counter
+        # none, none, 01, 939 fails here
         if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay != currentHourOfDay:
             print("second")
-            print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+            print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = currentAmountPerHour
         elif previousUserId == currentUserId and currentHourOfDay and previousHourOfDay == currentHourOfDay:
@@ -84,6 +86,6 @@ def reducer():
     # Print the current word and its count
     if previousFirstName and previousLastName and previousHourOfDay and previousAmountPerHour:
         print("third")
-        print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+        print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
 
 reducer()

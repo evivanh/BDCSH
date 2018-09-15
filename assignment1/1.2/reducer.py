@@ -59,7 +59,7 @@ def reducer():
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = currentAmountPerHour
-        elif previousUserId == currentUserId and previousHourOfDay and previousHourOfDay == currentHourOfDay:
+        elif previousUserId == currentUserId and currentHourOfDay and previousHourOfDay == currentHourOfDay:
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour += currentAmountPerHour
         # previous id is not same as curren id and current firstname and lastname exist set the names

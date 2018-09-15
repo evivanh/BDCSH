@@ -77,9 +77,10 @@ def reducer():
         if previousUserId != currentUserId and currentFirstName and currentLastName:
             previousFirstName = currentFirstName
             previousLastName = currentLastName
-        if previousUserId == currentUserId and currentHourOfDay:
+        if currentHourOfDay:
             previousHourOfDay = currentHourOfDay
-            previousAmountPerHour += currentAmountPerHour
+            if previousUserId == currentUserId:
+                previousAmountPerHour += currentAmountPerHour
         # if previousUserId == currentUserId and currentFirstName and currentLastName:
         #     previousFirstName = currentFirstName
         #     previousLastName = currentLastName

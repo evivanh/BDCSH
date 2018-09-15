@@ -9,8 +9,7 @@ def reducer():
     currentUserId = None
     previousHourOfDay = None
     currentHourOfDay = None
-    previousAmountPerHour= 0
-    currentAmountPerHour = 0
+    previousAmountPerHour = 0
     previousFirstName = None
     previousLastName = None
     currentFirstName = None
@@ -30,7 +29,7 @@ def reducer():
         currentFirstName = data[1] if data[1] != None else None
         currentLastName = data[2] if data[2] != None else None
         currentHourOfDay = data[3] if data[3] != None else None
-        currentAmountPerHour = 1
+        listenCount = 1
 
         # if currentFirstName and previousFirstName == None:
         #     previousFirstName = currentFirstName
@@ -60,38 +59,40 @@ def reducer():
         # previousUserId = currentUserId
 
 
-        # last valid stuff
+        # Changed user?
         if previousUserId and previousUserId != currentUserId:
+            # Print previous last line
             print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+            # Reset vars
             previousAmountPerHour = 0
             previousUserId = None
             previousFirstName = None
             previousLastName = None
             previousHourOfDay = None
-        # maybe good
-        if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay and previousHourOfDay != currentHourOfDay:
+
+        # Same user but hour of day changed?
+        if previousUserId == currentUserId and previousHourOfDay and previousHourOfDay != currentHourOfDay:
+            # Print current user and previous hour of day
             print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
-            previousHourOfDay = currentHourOfDay
+            # Reset var
             previousAmountPerHour = 0
-        # good
-        if previousUserId != currentUserId and currentFirstName and currentLastName:
+        
+        # Set name of current user
+        if currentFirstName and currentLastName:
             previousFirstName = currentFirstName
             previousLastName = currentLastName
+        
+        # If line has an hour of day
         if currentHourOfDay:
             previousHourOfDay = currentHourOfDay
-            if previousUserId == currentUserId:
-                previousAmountPerHour += currentAmountPerHour
-        # if previousUserId == currentUserId and currentFirstName and currentLastName:
-        #     previousFirstName = currentFirstName
-        #     previousLastName = currentLastName
+            # Same user and hour of day? Increase count
+            if previousUserId == currentUserId and previousHourOfDay == currentHourOfDay:
+                previousAmountPerHour += listenCount
+
         previousUserId = currentUserId
-        # previousFirstName = currentFirstName
-        # previousLastName = currentLastName
-        # previousHourOfDay = currentHourOfDay
    
     # Print the current word and its count
     if previousFirstName and previousLastName and previousHourOfDay and previousAmountPerHour:
-        print("third")
         print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
 
 reducer()

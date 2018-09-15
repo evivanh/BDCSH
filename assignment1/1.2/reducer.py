@@ -55,7 +55,7 @@ def reducer():
             previousLastName = None
             previousHourOfDay = None
         # if previous id is same as current id and currenhour and previoushour exist and are not the same print and set previous hour of day and reset counter
-        if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay and previousHourOfDay != currentHourOfDay:
+        if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay != currentHourOfDay:
             print(printTemplate.format(previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = currentAmountPerHour

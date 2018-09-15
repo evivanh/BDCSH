@@ -9,7 +9,7 @@ def mapper():
     for line in sys.stdin:
         
         # remove characters 
-        data = line.split(',')
+        data = line.strip().split(',')
 
         # if longer than 7 delete
         if len(data) > 7:
@@ -27,12 +27,12 @@ def mapper():
             user_id = int(data[0])
             first_name = data[1]
             last_name = data[2]
-
-        if len(data) == 3:
+        elif len(data) == 3:
             user_id = int(data[1])
             hourOfDay = data[2][11:13]
+        else:
+            continue
 
         print('{0};{1};{2};{3}'.format(user_id, first_name, last_name, hourOfDay))
-
 
 mapper()

@@ -11,10 +11,6 @@ def mapper():
         # remove characters 
         data = line.strip().split(',')
 
-        # if longer than 7 delete
-        if len(data) > 7:
-            continue
-
         if data[0] == 'id' or data[1] == 'first_name' or data[2] == 'last_name' or data[0] == 'track_id' or data[1] == 'user' or data[2] == 'datetime':
             continue
 

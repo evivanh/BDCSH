@@ -58,14 +58,17 @@ def reducer():
             previousHourOfDay = None
         # if previous id is same as current id and currenhour and previoushour exist and are not the same print and set previous hour of day and reset counter
         # none, none, 01, 939 fails here
-        if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay and previousHourOfDay != currentHourOfDay:
+        if previousUserId == currentUserId and currentHourOfDay and previousHourOfDay == currentHourOfDay:
+            previousHourOfDay = currentHourOfDay
+            previousAmountPerHour += currentAmountPerHour
+        elif previousUserId == currentUserId and currentHourOfDay and previousHourOfDay and previousHourOfDay != currentHourOfDay:
             print("second")
             print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = currentAmountPerHour
-        elif previousUserId == currentUserId and currentHourOfDay and previousHourOfDay == currentHourOfDay:
-            previousHourOfDay = currentHourOfDay
-            previousAmountPerHour += currentAmountPerHour
+        # elif previousUserId == currentUserId and currentHourOfDay and previousHourOfDay == currentHourOfDay:
+        #     previousHourOfDay = currentHourOfDay
+        #     previousAmountPerHour += currentAmountPerHour
         # previous id is not same as curren id and current firstname and lastname exist set the names
         if previousUserId != currentUserId and currentFirstName and currentLastName:
             previousFirstName = currentFirstName
@@ -74,9 +77,9 @@ def reducer():
         #     previousFirstName = currentFirstName
         #     previousLastName = currentLastName
         # previous id is same as current and currenthourofday exists
-        if previousUserId == currentUserId and currentHourOfDay:
-            previousHourOfDay = currentHourOfDay
-            previousAmountPerHour += currentAmountPerHour
+        # if previousUserId == currentUserId and currentHourOfDay:
+        #     previousHourOfDay = currentHourOfDay
+        #     previousAmountPerHour += currentAmountPerHour
 
 
         

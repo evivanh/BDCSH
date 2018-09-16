@@ -53,6 +53,8 @@ def reducer():
             if currentHourOfDay:
                 # print("third ", currentHourOfDay)
                 previousHourOfDay = currentHourOfDay
+            else: 
+                previousHourOfDay = None
         if currentHourOfDay and currentHourOfDay == previousHourOfDay:
             # print("fifth")
             previousAmountPerHour += listenCount

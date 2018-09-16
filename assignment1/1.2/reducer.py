@@ -39,11 +39,11 @@ def reducer():
 
 
 
-        # if currentFirstName:
-        #     previousFirstName = currentFirstName
+        if currentFirstName and previousFirstName == None:
+            previousFirstName = currentFirstName
 
-        # if currentLastName:
-        #     previousLastName = currentLastName
+        if currentLastName and previousLastName == None:
+            previousLastName = currentLastName
 
         if previousUserId and previousUserId != currentUserId:
             print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))

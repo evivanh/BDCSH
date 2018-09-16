@@ -39,6 +39,7 @@ def reducer():
             previousAmountPerHour = 0
             previousUserId = currentUserId
             previousHourOfDay = None
+            tracksPerHour.clear()
             # if currentHourOfDay:
 
             #     previousHourOfDay = currentHourOfDay

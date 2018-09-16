@@ -46,21 +46,27 @@ def reducer():
         #     previousLastName = currentLastName
 
         if previousUserId != currentUserId:
+            print("first")
             print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
             previousUserId = currentUserId
             if currentFirstName and currentLastName:
+                print("second")
                 previousFirstName = currentFirstName
                 previousLastName = currentFirstName
             if currentHourOfDay:
+                print("third")
                 previousHourOfDay = currentHourOfDay
         if currentHourOfDay and currentHourOfDay == previousHourOfDay:
+            print("fifth")
             previousAmountPerHour += listenCount
         if currentHourOfDay and previousHourOfDay != currentHourOfDay:
+            print("sixth")
             print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = 0
         if previousUserId == currentUserId and currentFirstName and currentLastName:
+            print("seventh")
             previousFirstName = currentFirstName
             previousLastName = currentLastName
 

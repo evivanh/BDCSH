@@ -46,7 +46,7 @@ def reducer():
             previousHourOfDay = None
         if currentHourOfDay and currentHourOfDay == previousHourOfDay:
             previousAmountPerHour += listenCount
-        if currentHourOfDay and previousHourOfDay and previousHourOfDay != currentHourOfDay:
+        if currentHourOfDay and previousHourOfDay != currentHourOfDay:
             print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = 0

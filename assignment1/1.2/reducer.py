@@ -55,10 +55,11 @@ def reducer():
             previousAmountPerHour += listenCount
         if currentHourOfDay and previousHourOfDay != currentHourOfDay:
             # print("sixth")
-            print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+            if previousHourOfDay != None:
+                print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = 0
-        if previousUserId == currentUserId and currentFirstName and currentLastName:
+        if previousUserId == currentUserId and previousFirstName == None and previousFirstName == None and currentFirstName and currentLastName:
             # print("seventh")
             previousFirstName = currentFirstName
             previousLastName = currentLastName

@@ -84,7 +84,6 @@ def reducer():
         
         # If line has an hour of day
         if currentHourOfDay:
-            previousHourOfDay = currentHourOfDay
             # Same user and hour of day? Increase count
             if previousUserId == currentUserId and previousHourOfDay == currentHourOfDay:
                 previousAmountPerHour += listenCount
@@ -94,6 +93,8 @@ def reducer():
                 # Reset var
                 previousAmountPerHour = 0
 
+            previousHourOfDay = currentHourOfDay
+            
         previousUserId = currentUserId
    
     # Print the current word and its count

@@ -10,11 +10,10 @@ def reducer():
     previousHourOfDay = None
     currentHourOfDay = None
     previousAmountPerHour = 0
-    previousFirstName = None
-    previousLastName = None
-    currentFirstName = None
-    currentLastName = None
+    firstName = None
+    lastName = None
     printTemplate = '{0};{1};{2};{3};{4}'
+    userListened = []
 
     # Input comes from STDIN
     for line in sys.stdin:
@@ -31,43 +30,33 @@ def reducer():
         currentHourOfDay = data[3] if data[3] != 'None' else None
         listenCount = 1
 
-        # if currentFirstName and previousFirstName == None:
-        #     previousFirstName = currentFirstName
-
-        # if currentLastName and previousLastName == None:
-        #     previousLastName = currentLastName
-
         if previousUserId != currentUserId:
             # print("first")
             if previousUserId != None:
-                print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+                print(printTemplate.format(previousUserId, firstName, lastName, previousHourOfDay, previousAmountPerHour))
+            firstName = None
+            lastName = None
             previousAmountPerHour = 0
             previousUserId = currentUserId
-            if currentFirstName and currentLastName:
-                # print("second ", currentFirstName, currentLastName)
-                previousFirstName = currentFirstName
-                previousLastName = currentLastName
-            else: 
-                previousFirstName = None
-                previousLastName = None
-            if currentHourOfDay:
-                # print("third ", currentHourOfDay)
-                previousHourOfDay = currentHourOfDay
-            else: 
-                previousHourOfDay = None
+            previousHourOfDay = None
+            # if currentHourOfDay:
+
+            #     previousHourOfDay = currentHourOfDay
+            # else: 
+            #     previousHourOfDay = None
         if currentHourOfDay and currentHourOfDay == previousHourOfDay:
             # print("fifth")
             previousAmountPerHour += listenCount
         if currentHourOfDay and previousHourOfDay != currentHourOfDay:
             # print("sixth")
             if previousHourOfDay != None:
-                print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+                print(printTemplate.format(previousUserId, firstName, lastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = 0
-        if previousUserId == currentUserId and currentFirstName and currentLastName:
+        if currentFirstName and currentLastName:
             # print("seventh")
-            previousFirstName = currentFirstName
-            previousLastName = currentLastName
+            firstName = currentFirstName
+            lastName = currentLastName
 
 
         previousUserId = currentUserId
@@ -112,7 +101,7 @@ def reducer():
         # previousUserId = currentUserId
    
     # Print the current word and its count
-    if previousFirstName and previousLastName and previousHourOfDay and previousAmountPerHour:
-        print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+    if firstName and lastName and previousHourOfDay and previousAmountPerHour:
+        print(printTemplate.format(previousUserId, firstName, lastName, previousHourOfDay, previousAmountPerHour))
 
 reducer()

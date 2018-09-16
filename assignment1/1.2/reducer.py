@@ -31,29 +31,38 @@ def reducer():
         currentHourOfDay = data[3]
         listenCount = 1
 
-        if currentFirstName:
-            previousFirstName = currentFirstName
 
-        if currentLastName:
-            previousLastName = currentLastName
+
+
+
+
+
+
+
+        # if currentFirstName:
+        #     previousFirstName = currentFirstName
+
+        # if currentLastName:
+        #     previousLastName = currentLastName
 
         if previousUserId and previousUserId != currentUserId:
             print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousAmountPerHour = 0
-            previousUserId = None
-            previousFirstName = None
-            previousLastName = None
-            previousHourOfDay = None
+            previousUserId = currentUserId
+            if currentFirstName and currentLastName:
+                previousFirstName = currentFirstName
+                previousLastName = currentFirstName
+            if currentHourOfDay:
+                previousHourOfDay = currentHourOfDay
         if currentHourOfDay and currentHourOfDay == previousHourOfDay:
             previousAmountPerHour += listenCount
         if currentHourOfDay and previousHourOfDay != currentHourOfDay:
             print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
             previousHourOfDay = currentHourOfDay
             previousAmountPerHour = 0
-
-        # if previousUserId == currentUserId and currentFirstName and currentLastName:
-        #     previousFirstName = currentFirstName
-        #     previousLastName = currentLastName
+        if previousUserId == currentUserId and currentFirstName and currentLastName:
+            previousFirstName = currentFirstName
+            previousLastName = currentLastName
 
 
         previousUserId = currentUserId

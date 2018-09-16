@@ -27,8 +27,8 @@ def reducer():
 
         currentUserId = data[0]
         currentFirstName = data[1] if data[1] != 'None' else None
-        currentLastName = data[2] if data[1] != 'None' else None
-        currentHourOfDay = data[3] if data[1] != 'None' else None
+        currentLastName = data[2] if data[2] != 'None' else None
+        currentHourOfDay = data[3] if data[3] != 'None' else None
         listenCount = 1
 
         # if currentFirstName and previousFirstName == None:

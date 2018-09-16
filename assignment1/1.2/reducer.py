@@ -31,8 +31,8 @@ def reducer():
         listenCount = 1
 
         if previousUserId and previousUserId != currentUserId:
-            for hour, count in tracksPerHour.items():
-                print(printTemplate.format(previousUserId, firstName, lastName, hour, count))
+            for hour in sorted(tracksPerHour.keys()):
+                print(printTemplate.format(previousUserId, firstName, lastName, hour, tracksPerHour[hour]))
 
             firstName = None
             lastName = None
@@ -113,7 +113,7 @@ def reducer():
    
     # Print the current word and its count
     if firstName and lastName and previousHourOfDay and previousAmountPerHour:
-        for hour, count in tracksPerHour.items():
-            print(printTemplate.format(previousUserId, firstName, lastName, hour, count))
+        for hour in sorted(tracksPerHour.keys()):
+            print(printTemplate.format(previousUserId, firstName, lastName, hour, tracksPerHour[hour]))
 
 reducer()

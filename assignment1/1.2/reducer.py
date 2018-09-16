@@ -71,11 +71,11 @@ def reducer():
             previousHourOfDay = None
 
         # Same user but hour of day changed?
-        if previousUserId == currentUserId and previousHourOfDay and previousHourOfDay != currentHourOfDay:
-            # Print current user and previous hour of day
-            print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
-            # Reset var
-            previousAmountPerHour = 0
+        # if previousUserId == currentUserId and previousHourOfDay and previousHourOfDay != currentHourOfDay:
+        #     # Print current user and previous hour of day
+        #     print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+        #     # Reset var
+        #     previousAmountPerHour = 0
         
         # Set name of current user
         if currentFirstName and currentLastName:
@@ -88,6 +88,11 @@ def reducer():
             # Same user and hour of day? Increase count
             if previousUserId == currentUserId and previousHourOfDay == currentHourOfDay:
                 previousAmountPerHour += listenCount
+            elif previousHourOfDay != currentHourOfDay:
+                # Print current user and previous hour of day
+                print(printTemplate.format(previousUserId, previousFirstName, previousLastName, previousHourOfDay, previousAmountPerHour))
+                # Reset var
+                previousAmountPerHour = 0
 
         previousUserId = currentUserId
    

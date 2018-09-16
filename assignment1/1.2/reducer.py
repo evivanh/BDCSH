@@ -12,7 +12,7 @@ def reducer():
     previousAmountPerHour = 0
     firstName = None
     lastName = None
-    printTemplate = '{0};{1};{2};{3};{4}'
+    printTemplate = '{0};{1};{2};{3}'
     tracksPerHour = {}
 
     # Input comes from STDIN
@@ -32,7 +32,7 @@ def reducer():
 
         if previousUserId and previousUserId != currentUserId:
             for hour in sorted(tracksPerHour.keys()):
-                print(printTemplate.format(previousUserId, firstName, lastName, hour, tracksPerHour[hour]))
+                print(printTemplate.format(firstName, lastName, hour, tracksPerHour[hour]))
 
             firstName = None
             lastName = None
@@ -115,6 +115,6 @@ def reducer():
     # Print the current word and its count
     if firstName and lastName and previousHourOfDay and previousAmountPerHour:
         for hour in sorted(tracksPerHour.keys()):
-            print(printTemplate.format(previousUserId, firstName, lastName, hour, tracksPerHour[hour]))
+            print(printTemplate.format(firstName, lastName, hour, tracksPerHour[hour]))
 
 reducer()

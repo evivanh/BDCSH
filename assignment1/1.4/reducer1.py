@@ -8,7 +8,6 @@ def reducer():
     userId = None
     firstName = None
     lastName = None
-    trackId = None
     printTemplate = '{0}-{1}-{2}-{3}-{4}'
     userTracks = {}
 
@@ -20,36 +19,38 @@ def reducer():
 
         if len(data) > 4:
             continue
-
+        # output : userid , first, last, 1 track, hoevaak 1 track
+        # hoevaak track geluisterd pp
         currentUserId = data[0]
         currentFirstName = data[1] if data[1] != 'None' else None
         currentLastName = data[2] if data[2] != 'None' else None
         currentTrackId = data[3] if data[3] != 'None' else None
         listenCount = 1
 
-    #     if userId and userId != currentUserId:
-    #         for track in userTracks:
-    #             print(printTemplate.format(userId, firstName, lastName, userTracks[track]))
 
-    #         firstName = None
-    #         lastName = None
-    #         currentTrackId = None
-    #         userTracks.clear()
+        if userId and userId != currentUserId:
+            for track, amount in userTracks:
+                print(printTemplate.format(userId, firstName, lastName, track, amount))
 
-    #     if currentTrackId:
-    #         if tracksPerHour.has_key(currentHourOfDay):
-    #             tracksPerHour[currentHourOfDay] += listenCount
-    #         else:
-    #             tracksPerHour[currentHourOfDay] = listenCount
+            firstName = None
+            lastName = None
+            currentTrackId = None
+            userTracks.clear()
 
-    #     if currentFirstName and currentLastName:
-    #         firstName = currentFirstName
-    #         lastName = currentLastName
+        if currentTrackId:
+            if userTracks.has_key(currentTrackId):
+                userTracks[currentTrackId] += listenCount
+            else:
+                userTracks[currentTrackId] = listenCount
 
-    #     previousUserId = currentUserId
+        if currentFirstName and currentLastName:
+            firstName = currentFirstName
+            lastName = currentLastName
+
+        userId = currentUserId
    
-    # # Print the last user and the count
-    # for hour in sorted(tracksPerHour.keys()):
-    #     print(printTemplate.format(firstName, lastName, hour, tracksPerHour[hour]))
+    # Print the last user and the count
+    for track, amount in sorted(userTracks.items()):
+        print(printTemplate.format(userId, firstName, lastName, track, amount))
 
 reducer()

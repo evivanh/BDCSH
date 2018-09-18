@@ -50,12 +50,11 @@ def reducer():
                 userTracks[currentTrackId] = [0, None]
             
             # print("list ", userTracks[currentTrackId][1])
-            print(userTracks[currentTrackId])
             
             # print("count " , userTracks[currentTrackId])
             if currentTrackCount:
                 # print("count")
-                stuff = userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount
+                userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount
             # print("artist " + userTracks[currentTrackId])
             if currentArtist:
                 # print("currentartist ")

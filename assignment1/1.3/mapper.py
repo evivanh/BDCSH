@@ -6,7 +6,7 @@ import sys
 
 def mapper():
 
-    HOUR_OF_DAY = 13
+    HOUR_OF_DAY = 12
     # Input comes from STDIN (standard input)
     for line in sys.stdin:
 

@@ -16,7 +16,7 @@ def reducer():
     # Input comes from STDIN
     # format is track id, user id, first name, last name, track count, artist
     for line in sys.stdin:
-        print(line)
+
         # Check argument count
         data = line.strip().split(',')
 
@@ -40,6 +40,7 @@ def reducer():
             userTracks.clear()
 
         if currentTrackId:
+        
             if userTracks.has_key(currentTrackId) == None:
                 userTracks[currentTrackId] = [0, None]
             if currentTrackCount:

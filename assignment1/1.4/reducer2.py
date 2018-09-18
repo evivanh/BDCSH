@@ -23,7 +23,7 @@ def reducer():
         if len(data) > 6:
             continue
 
-        currentUserId = data[0]
+        currentUserId = int(data[0])
         currentTrackId = data[1] if data[1] != 'None' else None
         currentFirstName = data[2] if data[2] != 'None' else None
         currentLastName = data[3] if data[3] != 'None' else None
@@ -32,7 +32,7 @@ def reducer():
 
         # print("currents ", currentTrackId, currentUserId, currentFirstName, currentLastName, currentTrackCount, currentArtist)
         # print ("previ ", userId, firstName, lastName)
-
+        print('UID', userId)
         if userId and userId != currentUserId:
             # print("u ", userId , " ",  currentUserId)
             # print("len " , len(userTracks))
@@ -50,13 +50,13 @@ def reducer():
             if currentTrackId not in userTracks:
                 userTracks[currentTrackId] = [0, None]
             
-            print("count " , userTracks[currentTrackId])
+            # print("count " , userTracks[currentTrackId])
             if currentTrackCount:
-                print("count")
+                # print("count")
                 userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount
-            print("artist " + userTracks[currentTrackId])
+            # print("artist " + userTracks[currentTrackId])
             if currentArtist:
-                print("currentartist ")
+                # print("currentartist ")
                 userTracks[currentTrackId][INDEX_TRACK_ARTIST] = currentArtist
 
         if currentFirstName and currentLastName:

@@ -10,26 +10,26 @@ def mapper():
         
         # remove characters 
         data = line.strip().split(',')
-        printTemplate = '{0};{1};{2};{3}'
+        printTemplate = '{0},{1},{2},{3}'
 
         if data[0] == 'id' or data[0] == 'track_id':
             continue
 
-        user_id = 0
-        first_name = None
-        last_name = None
-        track_id = None
+        userId = 0
+        firstName = None
+        lastName = None
+        trackId = None
 
         if len(data) == 7:
-            user_id = int(data[0])
-            first_name = data[1]
-            last_name = data[2]
+            userId = int(data[0])
+            firstName = data[1]
+            lastName = data[2]
         elif len(data) == 3:
-            track_id = data[0]
-            user_id = int(data[1])
+            trackId = data[0]
+            userId = int(data[1])
         else:
             continue
 
-        print(printTemplate.format(user_id, first_name, last_name, track_id))
+        print(printTemplate.format(userId, firstName, lastName, trackId))
 
 mapper()

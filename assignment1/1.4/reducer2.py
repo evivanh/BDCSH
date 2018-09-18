@@ -23,15 +23,15 @@ def reducer():
         if len(data) > 6:
             continue
 
-        currentTrackId = data[0] if data[0] != 'None' else None
-        currentUserId = data[1]
+        currentUserId = data[0]
+        currentTrackId = data[1] if data[1] != 'None' else None
         currentFirstName = data[2] if data[2] != 'None' else None
         currentLastName = data[3] if data[3] != 'None' else None
         currentTrackCount = data[4]
         currentArtist = data[5] if data[5] != 'None' else None
 
-        print("currents ", currentTrackId, currentUserId, currentFirstName, currentLastName, currentTrackCount, currentArtist)
-        print ("previ ", userId, firstName, lastName)
+        # print("currents ", currentTrackId, currentUserId, currentFirstName, currentLastName, currentTrackCount, currentArtist)
+        # print ("previ ", userId, firstName, lastName)
 
         if userId and userId != currentUserId:
             # print("u ", userId , " ",  currentUserId)

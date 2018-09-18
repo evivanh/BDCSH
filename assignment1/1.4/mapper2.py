@@ -35,6 +35,6 @@ def mapper():
         else:
             continue
 
-        print(printTemplate.format(trackId, userId, firstName, lastName, trackCount, artist))
+        print(printTemplate.format(userId, trackId, firstName, lastName, trackCount, artist))
 
 mapper()

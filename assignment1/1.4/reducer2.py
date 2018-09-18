@@ -32,7 +32,6 @@ def reducer():
 
         # print("currents ", currentTrackId, currentUserId, currentFirstName, currentLastName, currentTrackCount, currentArtist)
         # print ("previ ", userId, firstName, lastName)
-        print('UID', userId)
         if userId and userId != currentUserId:
             # print("u ", userId , " ",  currentUserId)
             # print("len " , len(userTracks))
@@ -49,6 +48,7 @@ def reducer():
         if currentTrackId:
             if currentTrackId not in userTracks:
                 userTracks[currentTrackId] = [0, None]
+                print(userTracks[currentTrackId])
             
             # print("count " , userTracks[currentTrackId])
             if currentTrackCount:

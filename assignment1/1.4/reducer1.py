@@ -30,7 +30,7 @@ def reducer():
 
 
         if userId and userId != currentUserId:
-            for track, amount in userTracks:
+            for track, amount in userTracks.items():
                 print(printTemplate.format(userId, firstName, lastName, track, amount))
 
             firstName = None
@@ -52,7 +52,7 @@ def reducer():
    
     # Print the last user and the count
     for track in sorted(userTracks.items()):
-        print(printTemplate.format(userId, firstName, lastName, track, userTracks[track]))
+        print(printTemplate.format(userId, firstName, lastName, track, amount))
 
 reducer()
 

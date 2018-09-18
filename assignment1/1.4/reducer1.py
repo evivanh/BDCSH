@@ -51,7 +51,7 @@ def reducer():
         userId = currentUserId
    
     # Print the last user and the count
-    for track in sorted(userTracks.items()):
+    for track, amount in sorted(userTracks.items()):
         print(printTemplate.format(userId, firstName, lastName, track, amount))
 
 reducer()

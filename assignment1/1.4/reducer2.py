@@ -48,9 +48,11 @@ def reducer():
 
         if currentTrackId:
             if currentTrackId in userTracks:
+                print("count " , userTracks[currentTrackId])
                 if currentTrackCount:
+                    print("count")
                     userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount
-
+                print("artist " + userTracks[currentTrackId])
                 if currentArtist:
                     print("currentartist ")
                     userTracks[currentTrackId][INDEX_TRACK_ARTIST] = currentArtist

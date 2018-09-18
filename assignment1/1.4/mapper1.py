@@ -18,18 +18,18 @@ def mapper():
         user_id = 0
         first_name = None
         last_name = None
-        trackId = None
+        track_id = None
 
         if len(data) == 7:
             user_id = int(data[0])
             first_name = data[1]
             last_name = data[2]
         elif len(data) == 3:
-            user_id = int(data[0])
-            trackId = data[1]
+            track_id = data[0]
+            user_id = int(data[1])
         else:
             continue
 
-        print(printTemplate.format(user_id, first_name, last_name, trackId))
+        print(printTemplate.format(user_id, first_name, last_name, track_id))
 
 mapper()

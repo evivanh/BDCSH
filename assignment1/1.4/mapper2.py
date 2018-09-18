@@ -24,14 +24,12 @@ def mapper():
         artist = None
 
         if len(data) == 5:
-            print("len ", 5)
             userId = int(data[0])
             firstName = data[1]
             lastName = data[2]
             trackId = data[3]
             trackCount = int(data[4])
         elif len(data) == 4:
-            print("len ", 4)
             trackId = data[0]
             artist = data[1]
         else:

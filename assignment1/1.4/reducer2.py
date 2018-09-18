@@ -32,7 +32,7 @@ def reducer():
 
         if userId and userId != currentUserId:
             for track in userTracks.items():
-                print(printTemplate.format(track, userId, firstName, lastName, userTracks[track][INDEX_TRACK_COUNT], userTracks[track][INDEX_TRACK_ARTIST]))
+                print(printTemplate.format(track, userId, firstName, lastName, track[INDEX_TRACK_COUNT], track[INDEX_TRACK_ARTIST]))
 
             firstName = None
             lastName = None
@@ -57,7 +57,7 @@ def reducer():
    
     # Print track id, user id, first name, last name, count and artist combined per track
     for track in sorted(userTracks.items()):
-        print(printTemplate.format(track, userId, firstName, lastName, userTracks[track][INDEX_TRACK_COUNT], userTracks[track][INDEX_TRACK_ARTIST]))
+        print(printTemplate.format(track, userId, firstName, lastName, track[INDEX_TRACK_COUNT], track[INDEX_TRACK_ARTIST]))
 
 reducer()
 

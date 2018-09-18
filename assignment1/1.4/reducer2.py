@@ -23,8 +23,6 @@ def reducer():
         if len(data) > 6:
             continue
 
-        print(data)
-
         currentTrackId = data[0] if data[0] != 'None' else None
         currentUserId = data[1]
         currentFirstName = data[2] if data[2] != 'None' else None
@@ -56,7 +54,7 @@ def reducer():
         userId = currentUserId
    
     # Print track id, user id, first name, last name, count and artist combined per track
-    for track in sorted(userTracks.items()):
+    for track in userTracks.items():
         print(printTemplate.format(track[0], userId, firstName, lastName, track[1][INDEX_TRACK_COUNT], track[1][INDEX_TRACK_ARTIST]))
 
 reducer()

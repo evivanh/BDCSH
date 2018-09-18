@@ -16,7 +16,7 @@ def reducer():
     # Input comes from STDIN
     # format is track id, user id, first name, last name, track count, artist
     for line in sys.stdin:
-
+        print(line)
         # Check argument count
         data = line.strip().split(',')
 

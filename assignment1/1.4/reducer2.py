@@ -50,13 +50,13 @@ def reducer():
             if currentTrackId not in userTracks:
                 userTracks[currentTrackId] = [0, None]
             
-            # print("count " , userTracks[currentTrackId])
+            print("count " , userTracks[currentTrackId])
             if currentTrackCount:
-                # print("count")
+                print("count")
                 userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount
-            # print("artist " + userTracks[currentTrackId])
+            print("artist " + userTracks[currentTrackId])
             if currentArtist:
-                # print("currentartist ")
+                print("currentartist ")
                 userTracks[currentTrackId][INDEX_TRACK_ARTIST] = currentArtist
 
         if currentFirstName and currentLastName:

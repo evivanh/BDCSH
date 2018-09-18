@@ -45,14 +45,14 @@ def reducer():
                 print ("3 " , userTracks[currentTrackId])
 
 
-            print (" if " , currentTrackCount != 0 , " " , currentTrackCount)
-            if currentTrackCount != 0:
+            print (" if " , currentTrackCount , " " , currentTrackCount)
+            if currentTrackCount:
                 userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount
-                print("1 " , userTracks[currentTrackId])
+                print("1 " , userTracks[currentTrackId][INDEX_TRACK_COUNT])
             print("artist ", currentArtist)
             if currentArtist:
                 userTracks[currentTrackId][INDEX_TRACK_ARTIST] = currentArtist
-                print("2 " , userTracks[currentTrackId])
+                print("2 " , userTracks[currentTrackId][INDEX_TRACK_ARTIST])
    
 
         if currentFirstName and currentLastName:

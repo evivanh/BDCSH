@@ -49,7 +49,7 @@ def reducer():
             if currentTrackId not in userTracks:
                 userTracks[currentTrackId] = [0, None]
             
-            print("list ", userTracks[currentTrackId][1])
+            # print("list ", userTracks[currentTrackId][1])
             
             # print("count " , userTracks[currentTrackId])
             if currentTrackCount:

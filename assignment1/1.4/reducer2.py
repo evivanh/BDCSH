@@ -40,18 +40,20 @@ def reducer():
             userTracks.clear()
 
         if currentTrackId:
-            if currentTrackId in userTracks:
-                
-                if currentTrackCount != 0:
-                    userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount
-                    print("1 " , userTracks[currentTrackId])
-                if currentArtist:
-                    userTracks[currentTrackId][INDEX_TRACK_ARTIST] = currentArtist
-                    print("2 " , userTracks[currentTrackId])
-
-            else:
+            if currentTrackId not in userTracks:
                 userTracks[currentTrackId] = [0, None]
                 print ("3 " , userTracks[currentTrackId])
+
+
+            print (" if " , currentTrackCount != 0 , " " , currentTrackCount)
+            if currentTrackCount != 0:
+                userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount
+                print("1 " , userTracks[currentTrackId])
+            print("artist ", currentArtist)
+            if currentArtist:
+                userTracks[currentTrackId][INDEX_TRACK_ARTIST] = currentArtist
+                print("2 " , userTracks[currentTrackId])
+   
 
         if currentFirstName and currentLastName:
             firstName = currentFirstName

@@ -30,6 +30,9 @@ def reducer():
         currentTrackCount = data[4]
         currentArtist = data[5] if data[5] != 'None' else None
 
+        print("currents ", currentTrackId, currentUserId, currentFirstName, currentLastName, currentTrackCount, currentArtist)
+        print ("previ ", userId, firstName, lastName)
+
         if userId and userId != currentUserId:
             print("u ", userId , " ",  currentUserId)
             print("len " , len(userTracks))

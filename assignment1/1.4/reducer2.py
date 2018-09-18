@@ -23,6 +23,8 @@ def reducer():
         if len(data) > 6:
             continue
 
+        print(data)
+
         currentTrackId = data[0] if data[0] != 'None' else None
         currentUserId = data[1]
         currentFirstName = data[2] if data[2] != 'None' else None

@@ -40,7 +40,7 @@ def reducer():
             userTracks.clear()
 
         if currentTrackId:
-            if currentTrackId not in userTracks:
+            if userTracks.has_key(currentTrackId) == None:
                 userTracks[currentTrackId] = [0, None]
             if currentTrackCount:
                 userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount

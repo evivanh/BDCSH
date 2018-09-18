@@ -34,8 +34,8 @@ def reducer():
         print ("previ ", userId, firstName, lastName)
 
         if userId and userId != currentUserId:
-            print("u ", userId , " ",  currentUserId)
-            print("len " , len(userTracks))
+            # print("u ", userId , " ",  currentUserId)
+            # print("len " , len(userTracks))
             # print(userTracks.items())
             # print(userTracks)
             for track in userTracks.items():

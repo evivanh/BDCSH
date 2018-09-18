@@ -36,7 +36,7 @@ def reducer():
         if userId and userId != currentUserId:
             print("u ", userId , " ",  currentUserId)
             print("len " , len(userTracks))
-            print(userTracks.items())
+            # print(userTracks.items())
             print(userTracks)
             for track in userTracks.items():
                 print(printTemplate.format(track[0], userId, firstName, lastName, track[1][INDEX_TRACK_COUNT], track[1][INDEX_TRACK_ARTIST]))

@@ -5,7 +5,7 @@ import sys
 
 def reducer():
 
-    userId = None
+    userId = 0
     firstName = None
     lastName = None
     printTemplate = '{0},{1},{2},{3},{4},{5}'

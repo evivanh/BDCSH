@@ -15,12 +15,15 @@ def mapper():
         if data[0] == 'track_id':
             continue
 
+
         userId = 0
         firstName = None
         lastName = None
         trackId = None
         trackCount = 0
         artist = None
+
+        print(data)
 
         if len(data) == 5:
             userId = int(data[0])

@@ -31,8 +31,8 @@ def reducer():
         currentArtist = data[5] if data[5] != 'None' else None
 
         if userId and userId != currentUserId:
-            for track, count, artist in userTracks.items():
-                print(printTemplate.format(track, userId, firstName, lastName, count, artist))
+            for track in userTracks.items():
+                print(printTemplate.format(track, userId, firstName, lastName, userTracks[track][INDEX_TRACK_COUNT], userTracks[track][INDEX_TRACK_ARTIST]))
 
             firstName = None
             lastName = None
@@ -56,8 +56,8 @@ def reducer():
         userId = currentUserId
    
     # Print track id, user id, first name, last name, count and artist combined per track
-    for track, count, artist in sorted(userTracks.items()):
-        print(printTemplate.format(track, userId, firstName, lastName, count, artist))
+    for track in sorted(userTracks.items()):
+        print(printTemplate.format(track, userId, firstName, lastName, userTracks[track][INDEX_TRACK_COUNT], userTracks[track][INDEX_TRACK_ARTIST]))
 
 reducer()
 

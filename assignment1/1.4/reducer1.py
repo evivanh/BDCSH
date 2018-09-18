@@ -8,17 +8,18 @@ def reducer():
     userId = None
     firstName = None
     lastName = None
-    printTemplate = '{0}-{1}-{2}-{3}-{4}'
+    printTemplate = '{0};{1};{2};{3};{4}'
     userTracks = {}
 
     # Input comes from STDIN
     for line in sys.stdin:
 
         # Check argument count
-        data = line.strip().split('-')
+        data = line.strip().split(';')
 
         if len(data) > 4:
             continue
+
         # output : userid , first, last, 1 track, hoevaak 1 track
         # hoevaak track geluisterd pp
         currentUserId = data[0]
@@ -54,3 +55,5 @@ def reducer():
         print(printTemplate.format(userId, firstName, lastName, track, amount))
 
 reducer()
+
+

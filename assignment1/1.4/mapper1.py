@@ -10,7 +10,7 @@ def mapper():
         
         # remove characters 
         data = line.strip().split(',')
-        printTemplate = '{0}-{1}-{2}-{3}'
+        printTemplate = '{0};{1};{2};{3}'
 
         if data[0] == 'id' or data[0] == 'track_id':
             continue

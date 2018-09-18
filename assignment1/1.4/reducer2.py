@@ -31,8 +31,8 @@ def reducer():
         currentArtist = data[5] if data[5] != 'None' else None
 
         if userId and userId != currentUserId:
-            # for track in userTracks.items():
-            #     print(printTemplate.format(track[0], userId, firstName, lastName, track[1][INDEX_TRACK_COUNT], track[1][INDEX_TRACK_ARTIST]))
+            for track in userTracks.items():
+                print(printTemplate.format(track[0], userId, firstName, lastName, track[1][INDEX_TRACK_COUNT], track[1][INDEX_TRACK_ARTIST]))
 
             firstName = None
             lastName = None
@@ -42,17 +42,17 @@ def reducer():
         if currentTrackId:
             if currentTrackId not in userTracks:
                 userTracks[currentTrackId] = [0, None]
-                print ("3 " , userTracks[currentTrackId])
+                # print ("3 " , userTracks[currentTrackId])
 
 
-            print (" if " , currentTrackCount , " " , currentTrackCount)
+            # print (" if " , currentTrackCount , " " , currentTrackCount)
             if currentTrackCount:
                 userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount
-                print("1 " , userTracks[currentTrackId][INDEX_TRACK_COUNT])
-            print("artist ", currentArtist)
+            #     print("1 " , userTracks[currentTrackId][INDEX_TRACK_COUNT])
+            # print("artist ", currentArtist)
             if currentArtist:
                 userTracks[currentTrackId][INDEX_TRACK_ARTIST] = currentArtist
-                print("2 " , userTracks[currentTrackId][INDEX_TRACK_ARTIST])
+                # print("2 " , userTracks[currentTrackId][INDEX_TRACK_ARTIST])
    
 
         if currentFirstName and currentLastName:
@@ -62,8 +62,8 @@ def reducer():
         userId = currentUserId
    
     # Print track id, user id, first name, last name, count and artist combined per track
-    # for track in userTracks.items():
-        # print(printTemplate.format(track[0], userId, firstName, lastName, track[1][INDEX_TRACK_COUNT], track[1][INDEX_TRACK_ARTIST]))
+    for track in userTracks.items():
+        print(printTemplate.format(track[0], userId, firstName, lastName, track[1][INDEX_TRACK_COUNT], track[1][INDEX_TRACK_ARTIST]))
 
 reducer()
 

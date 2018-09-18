@@ -23,8 +23,6 @@ def mapper():
         trackCount = 0
         artist = None
 
-        print(data)
-
         if len(data) == 5:
             userId = int(data[0])
             firstName = data[1]

@@ -3,25 +3,24 @@
 
 import sys
 
-
 def reducer():
 
     previousTrackId = None
     previousTitle = None
     previousArtist = None
-    previousHour = None
+    previousHour = None   
 
     currentTrackId = None
     currentTitle = None
     currentArtist = None
     currentHour = None
-    tracksInHour = {}
-    trackInfo = {}
+    #tracksInHour ={}
+    trackInfo = {}    
 
     # Input comes from STDIN
     for line in sys.stdin:
 
-        # Check argument count
+    # Check argument count
         data = line.strip().split(';')
 
         if len(data) > 4:
@@ -32,23 +31,31 @@ def reducer():
         artist = data[2] if data[2] != 'None' else None
         hour = int(data[3])
 
-        if title and artist:
+
+        if  title  and artist:
             currentTitle = title
             currentArtist = artist
+        if trackId in trackInfo:
+            #add artist and title to trackid and counter
+            trackInfo[trackId][0]=currentArtist
+            trackInfo[trackId][1] =currentTitle
 
-            if trackId not in trackInfo:
-                trackInfo[trackId] = [currentArtist, currentTitle]
+        else:
+            #make a new key(trackid) and add currentArtist and currentTitle
+            trackInfo[trackId] = [currentArtist, currentTitle,0]    
+        
 
         if hour == 1:
-            if trackId in tracksInHour:
-                tracksInHour[trackId] += 1
+            if trackId in trackInfo:
+            #add counter to trackId, currentArtist and currentTitle
+                trackInfo[trackId][2]+= 1
             else:
-               tracksInHour[trackId] = 1
+            #make a new key(trackId) and add trackid and counter
+                trackInfo[trackId]=[None, None, 1]
 
-        for track in sorted(tracksInHour.items(), key=lambda x: x[1], reverse=True)[0:5]:
-            for info in trackInfo:
-                if track[0] == info:
-                    print('{0}\t{1}\t{2}'.format(trackInfo[info][0], trackInfo[info][1], track[1]))
+
+    for track in sorted(trackInfo.items(), key=lambda x:x[1][2], reverse= True)[0:5]:
+        print('{0}\t{1}\t{2}'.format(track[1][0], track[1][1], track[1][2]))
 
 
 reducer()

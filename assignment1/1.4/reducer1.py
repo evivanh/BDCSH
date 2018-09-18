@@ -40,9 +40,7 @@ def reducer():
 
         if currentTrackId:
             if userTracks.has_key(currentTrackId):
-
                 userTracks[currentTrackId] += listenCount
-                print('listencount ', listenCount)
             else:
                 userTracks[currentTrackId] = listenCount
 

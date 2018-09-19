@@ -36,7 +36,7 @@ def reducer():
 
             firstName = None
             lastName = None
-            userListenedToArtist = []
+            userListenedToArtist.clear()
 
         if currentFirstName and currentLastName:
             firstName = currentFirstName

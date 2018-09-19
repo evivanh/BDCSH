@@ -10,7 +10,7 @@ def mapper():
         
         # remove characters 
         data = line.strip().split(',')
-        printTemplate = '{0},{1},{2},{3},{4},{5}'
+        printTemplate = '{0},{1},{2},{3},{4}'
 
         userId = 0
         firstName = None

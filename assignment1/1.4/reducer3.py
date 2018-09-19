@@ -8,7 +8,7 @@ def reducer():
     userId = None
     firstName = None
     lastName = None
-    printTemplate = '{0},{1},{2},{3},{4}'
+    printTemplate = '{0},{1},{2},{3}'
     userListenedToArtist = {}
 
     # Input comes from STDIN

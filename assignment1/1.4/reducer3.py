@@ -32,7 +32,6 @@ def reducer():
 
         if userId and currentUserId != userId:
             artist = sorted(userListenedToArtist.items(), key=lambda x:x[1], reverse = True)[:1][0]
-            print(artist)
             print(printTemplate.format(firstName, lastName, artist[0], artist[1]))
 
             firstName = None
@@ -53,7 +52,6 @@ def reducer():
    
     # Print track id, user id, first name, last name, count and artist combined per track
     artist = sorted(userListenedToArtist.items(), key=lambda x:x[1], reverse = True)[:1][0]
-    print(artist)
     print(printTemplate.format(firstName, lastName, artist[0], artist[1]))
 
 reducer()

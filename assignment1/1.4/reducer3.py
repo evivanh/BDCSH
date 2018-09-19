@@ -28,7 +28,7 @@ def reducer():
         currentFirstName = data[1] if data[1] != 'None' else None
         currentLastName = data[2] if data[2] != 'None' else None
         currentTrackCount = int(data[3])
-        currentArtist = data[4] if data[5] != 'None' else None
+        currentArtist = data[4] if data[4] != 'None' else None
 
         if userId and currentUserId != userId:
             artist = sorted(userListenedToArtist.items(), key=lambda x:x[1], reverse = True)[:1][0]

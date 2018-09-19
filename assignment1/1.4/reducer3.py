@@ -31,7 +31,7 @@ def reducer():
         currentArtist = data[4] if data[4] != 'None' else None
 
         if userId and currentUserId != userId:
-            artist = sorted(userListenedToArtist.items(), key=lambda x:x[1], reverse = True)[:1][0]
+            artist = sorted(userListenedToArtist.items(), key=lambda x:x[1], reverse = True)[:1]
             print(printTemplate.format(firstName, lastName, artist[0], artist[1]))
 
             firstName = None
@@ -51,7 +51,7 @@ def reducer():
         userId = currentUserId
    
     # Print track id, user id, first name, last name, count and artist combined per track
-    artist = sorted(userListenedToArtist.items(), key=lambda x:x[1], reverse = True)[:1][0]
+    artist = sorted(userListenedToArtist.items(), key=lambda x:x[1], reverse = True)[:1]
     print(printTemplate.format(firstName, lastName, artist[0], artist[1]))
 
 reducer()

@@ -5,13 +5,10 @@ import sys
 
 def reducer():
 
-    userId = 0
-    firstName = None
-    lastName = None
+    trackId = None
+    artist = None
     printTemplate = '{0},{1},{2},{3},{4},{5}'
-    userTracks = {}
-    INDEX_TRACK_COUNT = 0
-    INDEX_TRACK_ARTIST = 1
+    usersListenedToTrack = []
 
     # Input comes from STDIN
     # format is track id, user id, first name, last name, track count, artist
@@ -20,55 +17,36 @@ def reducer():
         # Check argument count
         data = line.strip().split(',')
 
-        if len(data) > 6:
+        if len(data) != 6:
             continue
 
-        currentUserId = int(data[0])
-        currentTrackId = data[1] if data[1] != 'None' else None
+        currentUserId = int(data[1])
+        currentTrackId = data[0] if data[0] != 'None' else None
         currentFirstName = data[2] if data[2] != 'None' else None
         currentLastName = data[3] if data[3] != 'None' else None
-        currentTrackCount = data[4]
+        currentTrackCount = int(data[4])
         currentArtist = data[5] if data[5] != 'None' else None
 
         # print("currents ", currentTrackId, currentUserId, currentFirstName, currentLastName, currentTrackCount, currentArtist)
         # print ("previ ", userId, firstName, lastName)
-        if userId and userId != currentUserId:
-            # print("u ", userId , " ",  currentUserId)
-            # print("len " , len(userTracks))
-            # print(userTracks.items())
-            # print(userTracks)
-            for track in userTracks.items():
-                print(printTemplate.format(userId, firstName, lastName, track[0], track[1][INDEX_TRACK_COUNT], track[1][INDEX_TRACK_ARTIST]))
+        if trackId and currentTrackId != trackId:
+            for user in usersListenedToTrack:
+                print(printTemplate.format(trackId, user[0], user[1], user[2], user[3], artist))
 
-            firstName = None
-            lastName = None
-            currentTrackId = None
-            userTracks.clear()
+            artist = None
+            usersListenedToTrack = []
 
-        if currentTrackId:
-            if currentTrackId not in userTracks:
-                userTracks[currentTrackId] = [0, None]
-            
-            # print("list ", userTracks[currentTrackId][1])
-            
-            # print("count " , userTracks[currentTrackId])
-            if currentTrackCount:
-                # print("count")
-                userTracks[currentTrackId][INDEX_TRACK_COUNT] = currentTrackCount
-            # print("artist " + userTracks[currentTrackId])
-            if currentArtist:
-                print(currentArtist)
-                userTracks[currentTrackId][INDEX_TRACK_ARTIST] = currentArtist
+        if currentUserId:
+            usersListenedToTrack.append([currentUserId, currentFirstName, currentLastName, currentTrackCount])
+        
+        if currentArtist:
+            artist = currentArtist
 
-        if currentFirstName and currentLastName:
-            firstName = currentFirstName
-            lastName = currentLastName
-
-        userId = currentUserId
+        trackId = currentTrackId
    
     # Print track id, user id, first name, last name, count and artist combined per track
-    for track in userTracks.items():
-        print(printTemplate.format(userId, firstName, lastName, track[0], track[1][INDEX_TRACK_COUNT], track[1][INDEX_TRACK_ARTIST]))
+    for user in usersListenedToTrack:
+        print(printTemplate.format(trackId, user[0], user[1], user[2], user[3], artist))
 
 reducer()
 

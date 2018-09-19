@@ -15,7 +15,6 @@ def mapper():
         if data[0] == 'track_id':
             continue
 
-
         userId = 0
         firstName = None
         lastName = None
@@ -35,6 +34,6 @@ def mapper():
         else:
             continue
 
-        print(printTemplate.format(userId, trackId, firstName, lastName, trackCount, artist))
+        print(printTemplate.format(trackId, userId, firstName, lastName, trackCount, artist))
 
 mapper()

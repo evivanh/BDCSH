@@ -5,14 +5,13 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 
 public class ReducerShakespeare
-        extends Reducer<Text, IntWritable, Text, IntWritable>
+        extends Reducer<Text, Text, Text, Text>
 {
-    public void reduce(Text key, Iterable<IntWritable> values, Context context)
+    public void reduce(Text key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
-        int wordCount = 0;
-        for (IntWritable value : values) {
-            wordCount += value.get();
+
+        for (Text value : values) {
+            context.write(key, value);
         }
-        context.write(key, new IntWritable(wordCount));
     }
 }

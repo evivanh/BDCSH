@@ -21,9 +21,6 @@ def reducer():
         if len(data) != 5:
             continue
 
-        # dict VAN TRACKS van user > key is artiest >  count
-        # veranderd van user : sort je op count desc en pak je bovenste en print
-
         currentUserId = int(data[0])
         currentFirstName = data[1] if data[1] != 'None' else None
         currentLastName = data[2] if data[2] != 'None' else None
@@ -50,7 +47,6 @@ def reducer():
 
         userId = currentUserId
    
-    # Print track id, user id, first name, last name, count and artist combined per track
     artist = sorted(userListenedToArtist.items(), key=lambda x:x[1], reverse = True)[:1][0]
     print(printTemplate.format(firstName, lastName, artist[0], artist[1]))
 

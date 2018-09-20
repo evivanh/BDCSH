@@ -35,9 +35,9 @@ def reducer():
             firstName = None
             lastName = None
             tracksPerHour.clear()
-
+            
         if currentHourOfDay:
-            if tracksPerHour.has_key(currentHourOfDay):
+            if currentHourOfDay in tracksPerHour:
                 tracksPerHour[currentHourOfDay] += listenCount
             else:
                 tracksPerHour[currentHourOfDay] = listenCount

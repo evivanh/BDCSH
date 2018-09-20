@@ -20,8 +20,6 @@ def reducer():
         if len(data) > 4:
             continue
 
-        # output : userid , first, last, 1 track, hoevaak 1 track
-        # hoevaak track geluisterd pp
         currentUserId = data[0]
         currentFirstName = data[1] if data[1] != 'None' else None
         currentLastName = data[2] if data[2] != 'None' else None
@@ -50,7 +48,6 @@ def reducer():
 
         userId = currentUserId
    
-    # Print the last user and the count
     for track, amount in sorted(userTracks.items()):
         print(printTemplate.format(userId, firstName, lastName, track, amount))
 

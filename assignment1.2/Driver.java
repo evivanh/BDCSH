@@ -15,21 +15,25 @@ public class Driver {
 
     public static void main(String[] args) throws Exception {
 
-//        if (args.length != 2) {
-//            System.out.printf("Usage: Shakespeare <input dir> <output dir>\n");
-//            System.exit(-1);
-//        }
+        if (args.length != 2) {
+            System.out.printf("Usage: Shakespeare <input dir> <output dir>\n");
+            System.exit(-1);
+        }
 
-        Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Shakespeare count");
+        Job job = new Job();
         job.setJarByClass(Driver.class);
-        job.setMapperClass(MapperShakespeare.class);
-        //job.setCombinerClass(ReducerShakespeare.class);
-        job.setReducerClass(ReducerShakespeare.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(Text.class);
-        FileInputFormat.addInputPath(job, new Path(args[0]));
+        job.setJobName("Word Count");
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
+        job.setMapperClass(MapperShakespeare.class); /* Mapper */
+        job.setReducerClass(ReducerShakespeare.class); /* Reducer */
+/*Intermediate key/value types: */
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(IntWritable.class);
+/* Output value types of Reducer: */
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        boolean success = job.waitForCompletion(true);
+        System.exit(success ? 0 : 1);
     }
 }

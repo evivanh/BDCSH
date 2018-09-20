@@ -18,7 +18,7 @@ public class Driver {
         Job job = Job.getInstance(conf, "Shakespeare count");
         job.setJarByClass(Driver.class);
         job.setMapperClass(MapperShakespeare.class);
-        job.setCombinerClass(MapperShakespeare.class);
+        job.setCombinerClass(ReducerShakespeare.class);
         job.setReducerClass(ReducerShakespeare.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);

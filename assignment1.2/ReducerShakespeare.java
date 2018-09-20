@@ -1,5 +1,18 @@
-/**
- * Created by Evi on 20-9-2018.
- */
-public class ReducerShakespeare {
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+import java.io.IOException;
+
+public class ReducerShakespeare
+        extends Reducer<Text, IntWritable, Text, IntWritable>
+{
+    public void reduce(Text key, Iterable<IntWritable> values, Context context)
+            throws IOException, InterruptedException {
+        int wordCount = 0;
+        for (IntWritable value : values) {
+            wordCount += value.get();
+        }
+        context.write(key, new IntWritable(wordCount));
+    }
 }

@@ -14,11 +14,17 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class Driver {
 
     public static void main(String[] args) throws Exception {
+
+//        if (args.length != 2) {
+//            System.out.printf("Usage: Shakespeare <input dir> <output dir>\n");
+//            System.exit(-1);
+//        }
+
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "Shakespeare count");
         job.setJarByClass(Driver.class);
         job.setMapperClass(MapperShakespeare.class);
-        job.setCombinerClass(ReducerShakespeare.class);
+        //job.setCombinerClass(ReducerShakespeare.class);
         job.setReducerClass(ReducerShakespeare.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);

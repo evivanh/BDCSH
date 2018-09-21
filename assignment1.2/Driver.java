@@ -29,10 +29,10 @@ public class Driver {
         job.setReducerClass(ReducerShakespeare.class); /* Reducer */
 /*Intermediate key/value types: */
         job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(IntWritable.class);
+        job.setMapOutputValueClass(Text.class);
 /* Output value types of Reducer: */
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(Text.class);
         boolean success = job.waitForCompletion(true);
         System.exit(success ? 0 : 1);
     }

@@ -20,6 +20,7 @@ class MOReducer extends Reducer<IntWritable, Text, IntWritable, Text> {
         Map<Text, Integer> ipAddressCountMap = new HashMap<>();
 
         for (Text value : values) {
+            System.out.println(value);
             if (ipAddressCountMap.containsKey(value)){
                 int count = ipAddressCountMap.get(value) + 1;
                 ipAddressCountMap.put(value, count);

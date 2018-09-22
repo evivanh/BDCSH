@@ -1,4 +1,3 @@
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -14,6 +13,7 @@ public class MapperShakespeare extends
 {
     public void map(LongWritable key, Text value, Context context)
             throws IOException, InterruptedException {
+        //get current shakespeare work
         String fileName =  ((FileSplit) context.getInputSplit()).getPath().getName();
         String line = value.toString();
         Integer lineNumber = null;
@@ -21,6 +21,7 @@ public class MapperShakespeare extends
         for (String word : line.split("\\W+")) {
             //check if there is already a line number
             if (lineNumber == null){
+                //set linenumber
                 lineNumber = Integer.parseInt(word);
             }else{
                 context.write(new Text(word.toLowerCase()),new Text(fileName + "@" + lineNumber));

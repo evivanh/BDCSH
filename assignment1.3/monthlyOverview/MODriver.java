@@ -24,8 +24,8 @@ public class MODriver {
         job.setMapperClass(MOMapper.class); /* Mapper */
         job.setReducerClass(MOReducer.class); /* Reducer */
         /*Intermediate key/value types: */
-        job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(IntWritable.class);
+        job.setMapOutputKeyClass(IntWritable.class);
+        job.setMapOutputValueClass(Text.class);
         /* Output value types of Reducer: */
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);

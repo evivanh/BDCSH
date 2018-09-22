@@ -8,6 +8,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Date;
  * package private
  * output: ip   hit count
  */
-class MOMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+class MOMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String line = value.toString();
@@ -27,28 +28,31 @@ class MOMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
         }
 
         String ipAddress = parts[0];
-        String monthYear = parts[4].substring(3, 11);
+        //get the month from the date
+        String month = parts[4].substring(3, 6);
 
-        Date d = getDate(monthYear);
+        int monthIndex = getMonthIndex(month);
 
+        if (monthIndex == 13) {
+            return;
+        }
 
-
-
-        //part four = 3 tot 11
         if (parts.length > 0){
-            context.write(new Text(parts[0]), new IntWritable(1));
+            context.write(new IntWritable(monthIndex), new Text(ipAddress));
         }
     }
 
 
-    private Date getDate(String monthYear){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM/yyyy");
-
+    private int getMonthIndex(String month){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM");
         try {
-            return dateFormat.parse(monthYear);
+            Date date = dateFormat.parse(month);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            return cal.get(Calendar.MONTH);
         } catch (ParseException e) {
             System.out.println("Unable to parse date: " + e);
         }
-        return null;
+        return 13;
     }
 }

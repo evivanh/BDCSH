@@ -27,15 +27,8 @@ class MOReducer extends Reducer<IntWritable, Text, IntWritable, Text> {
             }
         }
 
-        Iterator<Entry<Text, Integer>> iterator = ipAddressCountMap.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<Text, Integer> pair = (Map.Entry<Text, Integer>) iterator.next();
-//            System.out.println(pair.getKey() + " = " + pair.getValue());
+        for (Entry<Text, Integer> pair : ipAddressCountMap.entrySet()) {
             context.write(month, new Text(pair.getKey() + "\t" + pair.getValue()));
         }
-//
-//            for(Map.Entry<Text, Integer> entry: ipAddressCountMap.entrySet()) {
-//            context.write(month, new Text(entry.getKey() + "\t" + entry.getValue()));
-//        }
     }
 }

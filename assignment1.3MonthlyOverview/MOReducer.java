@@ -27,8 +27,8 @@ class MOReducer extends Reducer<IntWritable, Text, IntWritable, Text> {
             }
         }
 
-        for (Entry<Text, Integer> pair : ipAddressCountMap.entrySet()) {
-            context.write(month, new Text(pair.getKey() + "\t" + pair.getValue()));
-        }
+       // for (Entry<Text, Integer> pair : ipAddressCountMap.entrySet()) {
+            context.write(month, new Text(ipAddressCountMap.keySet().toString()));
+        //}
     }
 }

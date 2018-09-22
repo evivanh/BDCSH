@@ -27,8 +27,8 @@ public class MODriver {
         job.setMapOutputKeyClass(IntWritable.class);
         job.setMapOutputValueClass(Text.class);
         /* Output value types of Reducer: */
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputKeyClass(IntWritable.class);
+        job.setOutputValueClass(Text.class);
         boolean success = job.waitForCompletion(true);
         System.exit(success ? 0 : 1);
     }

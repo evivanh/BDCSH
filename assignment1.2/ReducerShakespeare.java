@@ -9,7 +9,9 @@ public class ReducerShakespeare
     public void reduce(Text key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
         StringBuilder stringBuilder = new StringBuilder();
+        //loop through values
         for (Text value : values) {
+            //check if it the last value so the output will be ok
             if (values.iterator().hasNext()){
                 stringBuilder.append(value).append(", ");
             }else {
@@ -20,21 +22,3 @@ public class ReducerShakespeare
 
     }
 }
-//if (groupedWords.containsKey(key)){
-//        ArrayList<Text> wordValues = groupedWords.get(key);
-//        wordValues.add(value);
-//        }else{
-//        ArrayList<Text> wordValues = new ArrayList<>();
-//        wordValues.add(value);
-//        groupedWords.put(key, wordValues);
-//
-//        }
-//
-//        for (Map.Entry<Text,ArrayList<Text>> entry : groupedWords.entrySet()) {
-//        Text wordKey = entry.getKey();
-//        ArrayList<Text> placeValue = entry.getValue();
-//        for (int i = 0; i <placeValue.size() ; i++) {
-//        stringBuilder.append(placeValue.get(i));
-//        }
-//        context.write( wordKey, new Text(stringBuilder.toString()));
-//        }

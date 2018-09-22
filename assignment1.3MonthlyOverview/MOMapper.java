@@ -27,7 +27,7 @@ class MOMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
 
         String ipAddress = parts[0];
         //get the month from the date
-        String month = parts[4].substring(3, 6);
+        String month = parts[3].substring(4, 7);
 
         int monthIndex = getMonthIndex(month);
 
@@ -35,9 +35,7 @@ class MOMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
             return;
         }
 
-        if (parts.length > 0){
-            context.write(new IntWritable(monthIndex), new Text(ipAddress));
-        }
+        context.write(new IntWritable(monthIndex), new Text(ipAddress));
     }
 
 
@@ -51,6 +49,6 @@ class MOMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
         } catch (ParseException e) {
             System.out.println("Unable to parse date: " + e);
         }
-        return 13;
+        return 12;
     }
 }

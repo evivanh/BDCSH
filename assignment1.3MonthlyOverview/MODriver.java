@@ -14,7 +14,7 @@ public class MODriver {
 
         Job job = new Job();
         job.setJarByClass(MODriver.class);
-        job.setJobName("Word Count");
+        job.setJobName("Monthly overview Count");
         job.setNumReduceTasks(12);
         job.setPartitionerClass(MOPartitioner.class);
         FileInputFormat.setInputPaths(job, new Path(args[0]));

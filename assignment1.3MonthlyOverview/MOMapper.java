@@ -31,7 +31,7 @@ class MOMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
 
         int monthIndex = getMonthIndex(month);
 
-        if (monthIndex == 13) {
+        if (monthIndex == 12) {
             return;
         }
 

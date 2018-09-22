@@ -19,6 +19,7 @@ class MOReducer extends Reducer<IntWritable, Text, IntWritable, Text> {
         Map<Text, Integer> ipAddressCountMap = new HashMap<>();
 
         for (Text value : values) {
+            System.out.println(value);
             if (ipAddressCountMap.containsKey(value)){
                 int count = ipAddressCountMap.get(value) + 1;
                 ipAddressCountMap.put(value, count);
@@ -27,8 +28,8 @@ class MOReducer extends Reducer<IntWritable, Text, IntWritable, Text> {
             }
         }
 
-       // for (Entry<Text, Integer> pair : ipAddressCountMap.entrySet()) {
-            context.write(month, new Text(ipAddressCountMap.keySet().toString()));
-        //}
+        for (Entry<Text, Integer> pair : ipAddressCountMap.entrySet()) {
+            context.write(month, new Text(pair.getKey() + "\t" + pair.getValue()));
+        }
     }
 }

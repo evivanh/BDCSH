@@ -23,7 +23,7 @@ public class MapperShakespeare extends
             if (lineNumber == null){
                 lineNumber = Integer.parseInt(word);
             }else{
-                context.write(new Text(word.toLowerCase()),new Text(fileName + ";" + lineNumber));
+                context.write(new Text(word.toLowerCase()),new Text(fileName + "@" + lineNumber));
             }
         }
     }

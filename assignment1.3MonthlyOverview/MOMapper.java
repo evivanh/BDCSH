@@ -40,7 +40,7 @@ class MOMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
 
 
     private int getMonthIndex(String date){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MMM/YYYY:HH:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss");
         Calendar cal = Calendar.getInstance();
 
         try {

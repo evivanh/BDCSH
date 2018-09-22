@@ -27,11 +27,11 @@ class MOMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
 
         String ipAddress = parts[0];
         //get the month from the date
-        String month = parts[3].substring(4, 7);
+        String date = parts[3].substring(1);
 
-        int monthIndex = getMonthIndex(month);
+        int monthIndex = getMonthIndex(date);
 
-        if (monthIndex == 12) {
+        if (monthIndex == -1) {
             return;
         }
 
@@ -39,16 +39,16 @@ class MOMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
     }
 
 
-    private int getMonthIndex(String month){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM");
+    private int getMonthIndex(String date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MMM/YYYY:HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+
         try {
-            Date date = dateFormat.parse(month);
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(date);
+            cal.setTime(dateFormat.parse(date));
             return cal.get(Calendar.MONTH);
         } catch (ParseException e) {
             System.out.println("Unable to parse date: " + e);
         }
-        return 12;
+        return -1;
     }
 }

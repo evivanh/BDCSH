@@ -14,7 +14,7 @@ public class IPDriver {
 
         Job job = new Job();
         job.setJarByClass(IPDriver.class);
-        job.setJobName("Word Count");
+        job.setJobName("Hit Count");
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
         job.setMapperClass(IPMapper.class); /* Mapper */

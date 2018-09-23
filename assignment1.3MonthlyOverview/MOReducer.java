@@ -17,20 +17,20 @@ import java.util.Iterator;
 class MOReducer extends Reducer<IntWritable, Text, IntWritable, Text> {
     @Override
     protected void reduce(IntWritable month, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-        Map<Text, Integer> ipAddressCountMap = new HashMap<>();
+        Map<String, Integer> ipAddressCountMap = new HashMap<>();
 
         for (Text ip : values) {
-            if (ipAddressCountMap.containsKey(ip)){
-                int count = ipAddressCountMap.get(ip) + 1;
-                ipAddressCountMap.put(ip, count);
+            if (ipAddressCountMap.containsKey(ip.toString())){
+                int count = ipAddressCountMap.get(ip.toString()) + 1;
+                ipAddressCountMap.put(ip.toString(), count);
             } else {
-                ipAddressCountMap.put(ip, 1);
+                ipAddressCountMap.put(ip.toString(), 1);
             }
-            context.write(month, new Text(ipAddressCountMap.keySet().toString()));
+//            context.write(month, new Text(ipAddressCountMap.keySet().toString()));
         }
 
-//        for (Entry<Text, Integer> pair : ipAddressCountMap.entrySet()) {
-//            context.write(month, new Text(pair.getKey() + "\t" + pair.getValue()));
-//        }
+        for (Entry<String, Integer> pair : ipAddressCountMap.entrySet()) {
+            context.write(month, new Text(pair.getKey() + "\t" + pair.getValue()));
+        }
     }
 }

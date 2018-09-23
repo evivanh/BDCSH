@@ -19,14 +19,14 @@ class MOReducer extends Reducer<IntWritable, Text, IntWritable, Text> {
     protected void reduce(IntWritable month, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         Map<Text, Integer> ipAddressCountMap = new HashMap<>();
 
-        for (Text value : values) {
-            context.write(month, value);
-            if (ipAddressCountMap.containsKey(value)){
-                int count = ipAddressCountMap.get(value) + 1;
-                ipAddressCountMap.put(value, count);
+        for (Text ip : values) {
+            if (ipAddressCountMap.containsKey(ip)){
+                int count = ipAddressCountMap.get(ip) + 1;
+                ipAddressCountMap.put(ip, count);
             } else {
-                ipAddressCountMap.put(value, 1);
+                ipAddressCountMap.put(ip, 1);
             }
+            context.write(month, new Text(ipAddressCountMap.keySet().toString()));
         }
 
 //        for (Entry<Text, Integer> pair : ipAddressCountMap.entrySet()) {
